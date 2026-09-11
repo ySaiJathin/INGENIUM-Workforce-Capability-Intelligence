@@ -1,0 +1,274 @@
+[
+  {
+    "id": "sql",
+    "name": "SQL",
+    "description": "Writing and reasoning about SQL queries against relational databases.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_select_filtering",
+    "name": "SQL SELECT & Filtering",
+    "description": "Basic SELECT statements, WHERE clauses, and filtering rows.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_joins",
+    "name": "SQL Joins",
+    "description": "Combining rows from multiple tables with INNER/LEFT/RIGHT/FULL joins.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_aggregation",
+    "name": "SQL Aggregation & HAVING",
+    "description": "GROUP BY, aggregate functions, and filtering aggregated results.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_window_functions",
+    "name": "SQL Window Functions",
+    "description": "Ranking, running totals, and partitioned analytics with window functions.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_ctes",
+    "name": "SQL CTEs",
+    "description": "Structuring complex queries with common table expressions.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "sql_query_optimization",
+    "name": "SQL Query Optimization",
+    "description": "Reading execution plans and tuning slow queries over large datasets.",
+    "parent_competency_id": "sql",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "description": "General-purpose Python programming for data and analysis tasks.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "python_data_manipulation",
+    "name": "Python Data Manipulation",
+    "description": "Cleaning, reshaping, and joining datasets with pandas.",
+    "parent_competency_id": "python",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "python_statistical_computing",
+    "name": "Python Statistical Computing",
+    "description": "Applying statistical methods and modelling in Python (NumPy/SciPy/statsmodels).",
+    "parent_competency_id": "python",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "statistics",
+    "name": "Statistics",
+    "description": "Applying statistical analysis techniques to real datasets.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/382c11ed-20d5-4ae7-b60e-15fec527fa6c",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "descriptive_statistics",
+    "name": "Descriptive Statistics",
+    "description": "Summarizing data with measures of central tendency and dispersion.",
+    "parent_competency_id": "statistics",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "inferential_statistics",
+    "name": "Inferential Statistics",
+    "description": "Hypothesis testing, confidence intervals, and generalizing from samples.",
+    "parent_competency_id": "statistics",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "survey_methodology",
+    "name": "Survey Methodology",
+    "description": "Sampling design, weighting, and variance estimation for complex surveys.",
+    "parent_competency_id": "statistics",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "regression_analysis",
+    "name": "Regression Analysis",
+    "description": "Linear and logistic regression modelling and interpretation.",
+    "parent_competency_id": "statistics",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "data_visualization",
+    "name": "Data Visualization",
+    "description": "Communicating data findings through effective visual design.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/65e58886-bd1e-4c5b-8ca5-8d9b353c8aa1",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "dashboard_design",
+    "name": "Dashboard Design",
+    "description": "Building interactive dashboards for non-technical stakeholders.",
+    "parent_competency_id": "data_visualization",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "statistical_charting",
+    "name": "Statistical Charting",
+    "description": "Choosing and building the right chart type for a statistical claim.",
+    "parent_competency_id": "data_visualization",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "machine_learning",
+    "name": "Machine Learning",
+    "description": "Applying machine learning techniques to structured data problems.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/3a2d5b45-56e4-4f5a-a55a-4a4a65afdc43",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "supervised_learning",
+    "name": "Supervised Learning",
+    "description": "Training and validating classification/regression models.",
+    "parent_competency_id": "machine_learning",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "model_evaluation",
+    "name": "Model Evaluation",
+    "description": "Choosing metrics and diagnosing over/underfitting.",
+    "parent_competency_id": "machine_learning",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "gis",
+    "name": "Geographic Information Systems",
+    "description": "Working with geospatial data and GIS software.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/377861af-f966-4c87-a2db-7e99904312b9",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "spatial_data_analysis",
+    "name": "Spatial Data Analysis",
+    "description": "Analysing spatial patterns and relationships in geographic data.",
+    "parent_competency_id": "gis",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "gis_software_tools",
+    "name": "GIS Software Tools",
+    "description": "Practical use of GIS software for mapping and analysis.",
+    "parent_competency_id": "gis",
+    "esco_source_id": "http://data.europa.eu/esco/skill/440f64e5-e66c-45ee-bc29-53c14a2ad720",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "database_management",
+    "name": "Database Management",
+    "description": "Designing and operating relational database management systems.",
+    "parent_competency_id": null,
+    "esco_source_id": "http://data.europa.eu/esco/skill/ab1e97ed-2319-4293-a8b7-072d2648822f",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "relational_database_design",
+    "name": "Relational Database Design",
+    "description": "Schema design, normalization, and indexing strategy.",
+    "parent_competency_id": "database_management",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "database_administration",
+    "name": "Database Administration",
+    "description": "Operating, securing, and maintaining a production database.",
+    "parent_competency_id": "database_management",
+    "esco_source_id": "http://data.europa.eu/esco/skill/7369f779-4b71-4aab-8836-48b69c676eec",
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "data_engineering",
+    "name": "Data Engineering",
+    "description": "Building pipelines that move and transform data reliably.",
+    "parent_competency_id": null,
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "etl_pipelines",
+    "name": "ETL Pipelines",
+    "description": "Extracting, transforming, and loading data between systems.",
+    "parent_competency_id": "data_engineering",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "data_quality_cleaning",
+    "name": "Data Quality & Cleaning",
+    "description": "Detecting and correcting data quality issues before analysis.",
+    "parent_competency_id": "data_engineering",
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "survey_sampling_design",
+    "name": "Survey Sampling Design",
+    "description": "Designing probability samples for official statistics collection.",
+    "parent_competency_id": null,
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "statistical_report_writing",
+    "name": "Statistical Report Writing",
+    "description": "Writing clear, accurate statistical reports for policy audiences.",
+    "parent_competency_id": null,
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "data_governance_ethics",
+    "name": "Data Governance & Ethics",
+    "description": "Applying data privacy, security, and governance standards to official data.",
+    "parent_competency_id": null,
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  },
+  {
+    "id": "stakeholder_communication",
+    "name": "Stakeholder Communication",
+    "description": "Explaining technical findings to non-technical decision-makers.",
+    "parent_competency_id": null,
+    "esco_source_id": null,
+    "proficiency_scale_max": 4
+  }
+]

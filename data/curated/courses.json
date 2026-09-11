@@ -1,0 +1,520 @@
+[
+  {
+    "id": "sql-foundations-01",
+    "title": "SQL Foundations for Official Statistics",
+    "provider": "iGOT Karmayogi",
+    "level": "beginner",
+    "duration_hours": 6,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "sql",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "sql_select_filtering",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level iGOT Karmayogi course on sql foundations for official statistics, covering: SQL, SQL SELECT & Filtering."
+  },
+  {
+    "id": "sql-joins-aggregation-02",
+    "title": "SQL Joins & Aggregation in Practice",
+    "provider": "iGOT Karmayogi",
+    "level": "intermediate",
+    "duration_hours": 8,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "sql_joins",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "sql_aggregation",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level iGOT Karmayogi course on sql joins & aggregation in practice, covering: SQL Joins, SQL Aggregation & HAVING."
+  },
+  {
+    "id": "sql-window-analytics-03",
+    "title": "Advanced SQL Analytics",
+    "provider": "National Statistical Academy",
+    "level": "advanced",
+    "duration_hours": 10,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "sql_window_functions",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "sql_ctes",
+        "coverage_weight": 0.7
+      }
+    ],
+    "description": "An advanced-level National Statistical Academy course on advanced sql analytics, covering: SQL Window Functions, SQL CTEs."
+  },
+  {
+    "id": "sql-performance-tuning-04",
+    "title": "SQL Query Optimization for Large Statistical Datasets",
+    "provider": "National Statistical Academy",
+    "level": "advanced",
+    "duration_hours": 8,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "sql_query_optimization",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level National Statistical Academy course on sql query optimization for large statistical datasets, covering: SQL Query Optimization."
+  },
+  {
+    "id": "python-foundations-05",
+    "title": "Python Programming Foundations",
+    "provider": "iGOT Karmayogi",
+    "level": "beginner",
+    "duration_hours": 10,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "python",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level iGOT Karmayogi course on python programming foundations, covering: Python."
+  },
+  {
+    "id": "python-data-wrangling-06",
+    "title": "Applied Python for Survey Data & Imputation",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "intermediate",
+    "duration_hours": 12,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "python_data_manipulation",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level Ministry of Statistics (MoSPI) course on applied python for survey data & imputation, covering: Python Data Manipulation."
+  },
+  {
+    "id": "python-stat-computing-07",
+    "title": "Statistical Computing with Python",
+    "provider": "UN Statistics Division",
+    "level": "advanced",
+    "duration_hours": 14,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "python_statistical_computing",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level UN Statistics Division course on statistical computing with python, covering: Python Statistical Computing."
+  },
+  {
+    "id": "applied-statistics-08",
+    "title": "Applied Statistics for Government Analysts",
+    "provider": "National Statistical Academy",
+    "level": "beginner",
+    "duration_hours": 10,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "statistics",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "descriptive_statistics",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level National Statistical Academy course on applied statistics for government analysts, covering: Statistics, Descriptive Statistics."
+  },
+  {
+    "id": "inferential-statistics-09",
+    "title": "Inferential Statistics & Regression Modelling",
+    "provider": "National Statistical Academy",
+    "level": "advanced",
+    "duration_hours": 14,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "inferential_statistics",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "regression_analysis",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level National Statistical Academy course on inferential statistics & regression modelling, covering: Inferential Statistics, Regression Analysis."
+  },
+  {
+    "id": "survey-methodology-10",
+    "title": "Complex Survey Design & Variance Estimation",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "intermediate",
+    "duration_hours": 12,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "survey_methodology",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "survey_sampling_design",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level Ministry of Statistics (MoSPI) course on complex survey design & variance estimation, covering: Survey Methodology, Survey Sampling Design."
+  },
+  {
+    "id": "statistical-reporting-11",
+    "title": "Writing Statistical Reports for Policy Audiences",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "intermediate",
+    "duration_hours": 6,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "statistical_report_writing",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "stakeholder_communication",
+        "coverage_weight": 0.6
+      }
+    ],
+    "description": "An intermediate-level Ministry of Statistics (MoSPI) course on writing statistical reports for policy audiences, covering: Statistical Report Writing, Stakeholder Communication."
+  },
+  {
+    "id": "dataviz-essentials-12",
+    "title": "Data Visualization Essentials",
+    "provider": "iGOT Karmayogi",
+    "level": "intermediate",
+    "duration_hours": 8,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "data_visualization",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "dashboard_design",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level iGOT Karmayogi course on data visualization essentials, covering: Data Visualization, Dashboard Design."
+  },
+  {
+    "id": "advanced-charting-13",
+    "title": "Statistical Charting for Public Communication",
+    "provider": "GovTech Institute",
+    "level": "intermediate",
+    "duration_hours": 5,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "statistical_charting",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level GovTech Institute course on statistical charting for public communication, covering: Statistical Charting."
+  },
+  {
+    "id": "ml-foundations-14",
+    "title": "Machine Learning Foundations for Analysts",
+    "provider": "UN Statistics Division",
+    "level": "advanced",
+    "duration_hours": 16,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "machine_learning",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "supervised_learning",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level UN Statistics Division course on machine learning foundations for analysts, covering: Machine Learning, Supervised Learning."
+  },
+  {
+    "id": "model-evaluation-15",
+    "title": "Model Evaluation & Validation Metrics",
+    "provider": "UN Statistics Division",
+    "level": "advanced",
+    "duration_hours": 8,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "model_evaluation",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level UN Statistics Division course on model evaluation & validation metrics, covering: Model Evaluation."
+  },
+  {
+    "id": "gis-fundamentals-16",
+    "title": "GIS Fundamentals for Government Analysts",
+    "provider": "GovTech Institute",
+    "level": "beginner",
+    "duration_hours": 10,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "gis",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "gis_software_tools",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level GovTech Institute course on gis fundamentals for government analysts, covering: Geographic Information Systems, GIS Software Tools."
+  },
+  {
+    "id": "spatial-data-analysis-17",
+    "title": "Spatial Data Analysis for Statistical Programmes",
+    "provider": "GovTech Institute",
+    "level": "advanced",
+    "duration_hours": 12,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "spatial_data_analysis",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level GovTech Institute course on spatial data analysis for statistical programmes, covering: Spatial Data Analysis."
+  },
+  {
+    "id": "database-mgmt-essentials-18",
+    "title": "Database Management Essentials",
+    "provider": "iGOT Karmayogi",
+    "level": "intermediate",
+    "duration_hours": 10,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "database_management",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "relational_database_design",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level iGOT Karmayogi course on database management essentials, covering: Database Management, Relational Database Design."
+  },
+  {
+    "id": "database-admin-advanced-19",
+    "title": "Advanced Database Administration",
+    "provider": "National Statistical Academy",
+    "level": "advanced",
+    "duration_hours": 12,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "database_administration",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level National Statistical Academy course on advanced database administration, covering: Database Administration."
+  },
+  {
+    "id": "data-engineering-etl-20",
+    "title": "Data Engineering & ETL Pipelines for Official Statistics",
+    "provider": "UN Statistics Division",
+    "level": "advanced",
+    "duration_hours": 14,
+    "priority": 1,
+    "competencies_covered": [
+      {
+        "competency_id": "data_engineering",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "etl_pipelines",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An advanced-level UN Statistics Division course on data engineering & etl pipelines for official statistics, covering: Data Engineering, ETL Pipelines."
+  },
+  {
+    "id": "data-quality-cleaning-21",
+    "title": "Data Quality & Cleaning in Practice",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "intermediate",
+    "duration_hours": 6,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "data_quality_cleaning",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level Ministry of Statistics (MoSPI) course on data quality & cleaning in practice, covering: Data Quality & Cleaning."
+  },
+  {
+    "id": "data-governance-ethics-22",
+    "title": "Data Governance & Ethics for Public Institutions",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "beginner",
+    "duration_hours": 4,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "data_governance_ethics",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level Ministry of Statistics (MoSPI) course on data governance & ethics for public institutions, covering: Data Governance & Ethics."
+  },
+  {
+    "id": "stakeholder-communication-23",
+    "title": "Communicating Data to Non-Technical Stakeholders",
+    "provider": "GovTech Institute",
+    "level": "beginner",
+    "duration_hours": 4,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "stakeholder_communication",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "A beginner-level GovTech Institute course on communicating data to non-technical stakeholders, covering: Stakeholder Communication."
+  },
+  {
+    "id": "sql-for-analysts-24",
+    "title": "SQL for Data Analysts",
+    "provider": "Ministry of Statistics (MoSPI)",
+    "level": "beginner",
+    "duration_hours": 6,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "sql",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "sql_aggregation",
+        "coverage_weight": 0.6
+      }
+    ],
+    "description": "A beginner-level Ministry of Statistics (MoSPI) course on sql for data analysts, covering: SQL, SQL Aggregation & HAVING."
+  },
+  {
+    "id": "python-for-data-science-25",
+    "title": "Python for Data Science",
+    "provider": "UN Statistics Division",
+    "level": "intermediate",
+    "duration_hours": 12,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "python",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "python_data_manipulation",
+        "coverage_weight": 0.7
+      }
+    ],
+    "description": "An intermediate-level UN Statistics Division course on python for data science, covering: Python, Python Data Manipulation."
+  },
+  {
+    "id": "advanced-survey-variance-26",
+    "title": "Advanced Survey Variance Estimation",
+    "provider": "National Statistical Academy",
+    "level": "advanced",
+    "duration_hours": 10,
+    "priority": 2,
+    "competencies_covered": [
+      {
+        "competency_id": "survey_methodology",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "inferential_statistics",
+        "coverage_weight": 0.6
+      }
+    ],
+    "description": "An advanced-level National Statistical Academy course on advanced survey variance estimation, covering: Survey Methodology, Inferential Statistics."
+  },
+  {
+    "id": "dashboard-design-govt-27",
+    "title": "Dashboard Design for Government Reporting",
+    "provider": "iGOT Karmayogi",
+    "level": "intermediate",
+    "duration_hours": 6,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "dashboard_design",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level iGOT Karmayogi course on dashboard design for government reporting, covering: Dashboard Design."
+  },
+  {
+    "id": "big-data-fundamentals-28",
+    "title": "Big Data Fundamentals for Statistical Agencies",
+    "provider": "UN Statistics Division",
+    "level": "intermediate",
+    "duration_hours": 10,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "data_engineering",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "etl_pipelines",
+        "coverage_weight": 0.6
+      }
+    ],
+    "description": "An intermediate-level UN Statistics Division course on big data fundamentals for statistical agencies, covering: Data Engineering, ETL Pipelines."
+  },
+  {
+    "id": "relational-db-design-29",
+    "title": "Relational Database Design Deep Dive",
+    "provider": "National Statistical Academy",
+    "level": "intermediate",
+    "duration_hours": 8,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "relational_database_design",
+        "coverage_weight": 1.0
+      }
+    ],
+    "description": "An intermediate-level National Statistical Academy course on relational database design deep dive, covering: Relational Database Design."
+  },
+  {
+    "id": "ml-model-evaluation-lab-30",
+    "title": "Machine Learning Model Evaluation Lab",
+    "provider": "GovTech Institute",
+    "level": "advanced",
+    "duration_hours": 8,
+    "priority": 3,
+    "competencies_covered": [
+      {
+        "competency_id": "model_evaluation",
+        "coverage_weight": 1.0
+      },
+      {
+        "competency_id": "supervised_learning",
+        "coverage_weight": 0.6
+      }
+    ],
+    "description": "An advanced-level GovTech Institute course on machine learning model evaluation lab, covering: Model Evaluation, Supervised Learning."
+  }
+]

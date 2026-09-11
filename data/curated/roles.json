@@ -1,0 +1,270 @@
+[
+  {
+    "id": "role-sso-01",
+    "name": "Senior Statistical Officer",
+    "description": "Leads official statistics production: survey design, estimation, and reporting for government data programmes.",
+    "esco_occupation_id": "http://data.europa.eu/esco/occupation/ac8b3cd1-a127-4e6a-8208-5cfcf7111955",
+    "required_competencies": [
+      {
+        "competency_id": "sql",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "sql_window_functions",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "statistics",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "inferential_statistics",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "survey_methodology",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "python",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "statistical_report_writing",
+        "required_level": 3,
+        "priority": 3
+      },
+      {
+        "competency_id": "data_governance_ethics",
+        "required_level": 2,
+        "priority": 3
+      }
+    ]
+  },
+  {
+    "id": "role-da-02",
+    "name": "Senior Data Analyst",
+    "description": "Turns raw administrative and survey data into decision-ready analysis and dashboards.",
+    "esco_occupation_id": "http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2",
+    "required_competencies": [
+      {
+        "competency_id": "sql",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "sql_joins",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "sql_aggregation",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "python",
+        "required_level": 3,
+        "priority": 1
+      },
+      {
+        "competency_id": "python_data_manipulation",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "data_visualization",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "dashboard_design",
+        "required_level": 3,
+        "priority": 3
+      },
+      {
+        "competency_id": "descriptive_statistics",
+        "required_level": 3,
+        "priority": 3
+      }
+    ]
+  },
+  {
+    "id": "role-ds-03",
+    "name": "Lead Data Scientist",
+    "description": "Builds predictive models and advanced analytics on top of official statistics datasets.",
+    "esco_occupation_id": "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30",
+    "required_competencies": [
+      {
+        "competency_id": "python",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "python_statistical_computing",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "machine_learning",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "supervised_learning",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "model_evaluation",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "statistics",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "regression_analysis",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "sql",
+        "required_level": 3,
+        "priority": 3
+      }
+    ]
+  },
+  {
+    "id": "role-sp-04",
+    "name": "Statistical Programmer",
+    "description": "Implements and optimizes the data pipelines and queries behind official statistics products.",
+    "esco_occupation_id": null,
+    "required_competencies": [
+      {
+        "competency_id": "sql",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "sql_query_optimization",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "sql_ctes",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "python",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "python_data_manipulation",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "database_administration",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "data_quality_cleaning",
+        "required_level": 3,
+        "priority": 3
+      }
+    ]
+  },
+  {
+    "id": "role-gis-05",
+    "name": "GIS Analyst",
+    "description": "Produces spatial statistics and mapping products from geographic and survey data.",
+    "esco_occupation_id": "http://data.europa.eu/esco/occupation/9af8907f-56a7-4170-83b1-3c6ba0997cfa",
+    "required_competencies": [
+      {
+        "competency_id": "gis",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "spatial_data_analysis",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "gis_software_tools",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "sql",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "python",
+        "required_level": 2,
+        "priority": 3
+      },
+      {
+        "competency_id": "data_visualization",
+        "required_level": 3,
+        "priority": 3
+      }
+    ]
+  },
+  {
+    "id": "role-de-06",
+    "name": "Data Engineer",
+    "description": "Builds and maintains the data pipelines and databases that feed the statistical office's systems.",
+    "esco_occupation_id": "http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc",
+    "required_competencies": [
+      {
+        "competency_id": "sql",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "database_management",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "relational_database_design",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "etl_pipelines",
+        "required_level": 4,
+        "priority": 1
+      },
+      {
+        "competency_id": "data_quality_cleaning",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "python",
+        "required_level": 3,
+        "priority": 2
+      },
+      {
+        "competency_id": "data_governance_ethics",
+        "required_level": 2,
+        "priority": 3
+      }
+    ]
+  }
+]

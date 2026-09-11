@@ -1,0 +1,20 @@
+# Local PostgreSQL for the Competency Intelligence MVP — Docker in place of a native install
+# (CLAUDE.md: "PostgreSQL only" is about not adding a second database technology; running the
+# one required database in a container, instead of installing it on the host, changes nothing
+# about that rule). Mapped to host port 5433 to avoid clashing with any other Postgres container
+# already running on this machine.
+services:
+  postgres:
+    image: postgres:16
+    container_name: competency-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: competency_intelligence
+    ports:
+      - "5433:5432"
+    volumes:
+      - competency_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  competency_postgres_data:

@@ -1,0 +1,437 @@
+[
+  {
+    "id": "seed-001",
+    "competency_id": "sql",
+    "question": "Which SQL clause filters rows before any grouping happens?",
+    "type": "mcq",
+    "options": [
+      "GROUP BY",
+      "WHERE",
+      "HAVING",
+      "ORDER BY"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "WHERE filters individual rows before GROUP BY forms groups; HAVING filters after grouping."
+  },
+  {
+    "id": "seed-002",
+    "competency_id": "sql_window_functions",
+    "question": "Which function assigns a running rank to rows within a partition without skipping numbers for ties?",
+    "type": "mcq",
+    "options": [
+      "RANK()",
+      "DENSE_RANK()",
+      "ROW_NUMBER()",
+      "NTILE()"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 3,
+    "explanation": "DENSE_RANK() never skips rank numbers after a tie, unlike RANK()."
+  },
+  {
+    "id": "seed-003",
+    "competency_id": "statistics",
+    "question": "A dataset's mean is much higher than its median. What does this most likely indicate?",
+    "type": "mcq",
+    "options": [
+      "The data is perfectly symmetric",
+      "The data is right-skewed by high outliers",
+      "The sample size is too small",
+      "The data has no variance"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "A mean pulled above the median usually signals right-skew from high-value outliers."
+  },
+  {
+    "id": "seed-004",
+    "competency_id": "inferential_statistics",
+    "question": "A 95% confidence interval for a survey estimate means:",
+    "type": "mcq",
+    "options": [
+      "95% of the population falls in this range",
+      "If repeated sampling were done, 95% of such intervals would contain the true value",
+      "There is a 95% chance the sample mean is correct",
+      "The margin of error is exactly 5%"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 3,
+    "explanation": "The 95% refers to the long-run capture rate of the interval procedure, not a probability about one specific interval."
+  },
+  {
+    "id": "seed-005",
+    "competency_id": "survey_methodology",
+    "question": "In a complex survey with unequal selection probabilities, what must be applied before estimating a population total?",
+    "type": "mcq",
+    "options": [
+      "Nothing — raw counts are unbiased",
+      "Design weights",
+      "A larger sample size",
+      "Removing all missing values"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 3,
+    "explanation": "Design weights correct for unequal selection probabilities so estimates remain unbiased for the population."
+  },
+  {
+    "id": "seed-006",
+    "competency_id": "python",
+    "question": "What does the following return? `len([x for x in range(10) if x % 2 == 0])`",
+    "type": "mcq",
+    "options": [
+      "4",
+      "5",
+      "10",
+      "0"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "range(10) has 10 values 0-9; the even ones are 0,2,4,6,8 — five values."
+  },
+  {
+    "id": "seed-007",
+    "competency_id": "statistical_report_writing",
+    "question": "What is the primary purpose of an executive summary in a statistical report for policymakers?",
+    "type": "mcq",
+    "options": [
+      "List every table and figure in the report",
+      "State the key findings and implications in plain language up front",
+      "Describe the statistical software used",
+      "Provide the full methodology appendix"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 1,
+    "explanation": "An executive summary gives busy policy readers the key findings and implications without requiring them to read the full report."
+  },
+  {
+    "id": "seed-008",
+    "competency_id": "data_governance_ethics",
+    "question": "Under standard data governance practice, personally identifiable survey respondent data should be:",
+    "type": "mcq",
+    "options": [
+      "Shared freely for research convenience",
+      "Anonymized/de-identified and access-controlled before wider use",
+      "Stored in plain text for easy access",
+      "Ignored since it's government data"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "Personally identifiable data must be de-identified and access-controlled to protect respondent privacy."
+  },
+  {
+    "id": "seed-009",
+    "competency_id": "sql_joins",
+    "question": "Which join returns all rows from the left table and matching rows from the right, with NULLs where there's no match?",
+    "type": "mcq",
+    "options": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "CROSS JOIN",
+      "SELF JOIN"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "LEFT JOIN keeps every row from the left table, filling unmatched right-side columns with NULL."
+  },
+  {
+    "id": "seed-010",
+    "competency_id": "sql_aggregation",
+    "question": "Which clause filters groups after aggregation, e.g. `HAVING COUNT(*) > 5`?",
+    "type": "mcq",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "GROUP BY",
+      "LIMIT"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "HAVING operates on aggregated group results, unlike WHERE which filters rows before grouping."
+  },
+  {
+    "id": "seed-011",
+    "competency_id": "python_data_manipulation",
+    "question": "In pandas, which method removes rows containing any missing values?",
+    "type": "mcq",
+    "options": [
+      "df.fillna()",
+      "df.dropna()",
+      "df.drop_duplicates()",
+      "df.isnull()"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "dropna() removes rows (or columns) containing missing values; fillna() fills them instead."
+  },
+  {
+    "id": "seed-012",
+    "competency_id": "data_visualization",
+    "question": "For comparing a value across many categories, which chart type is generally most effective?",
+    "type": "mcq",
+    "options": [
+      "Pie chart with 20 slices",
+      "Sorted bar chart",
+      "3D scatter plot",
+      "Word cloud"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "A sorted bar chart makes category-to-category comparison far easier to read accurately than a many-slice pie chart."
+  },
+  {
+    "id": "seed-013",
+    "competency_id": "dashboard_design",
+    "question": "What is a key principle of dashboard design for non-technical stakeholders?",
+    "type": "mcq",
+    "options": [
+      "Show every available metric on one screen",
+      "Surface the few metrics that drive decisions, with drill-down for detail",
+      "Use as many colors as possible",
+      "Avoid any labels to keep it clean"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "Good dashboards prioritize the handful of decision-relevant metrics, with detail available on demand rather than all at once."
+  },
+  {
+    "id": "seed-014",
+    "competency_id": "descriptive_statistics",
+    "question": "Which measure of central tendency is most resistant to extreme outliers?",
+    "type": "mcq",
+    "options": [
+      "Mean",
+      "Median",
+      "Range",
+      "Standard deviation"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 1,
+    "explanation": "The median is far less affected by extreme values than the mean, since it depends only on rank order."
+  },
+  {
+    "id": "seed-015",
+    "competency_id": "python_statistical_computing",
+    "question": "Which Python library is most commonly used for classical statistical modelling (e.g. OLS regression) with R-like formulas?",
+    "type": "mcq",
+    "options": [
+      "statsmodels",
+      "matplotlib",
+      "requests",
+      "flask"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 3,
+    "explanation": "statsmodels provides R-style formula APIs for classical statistical models like OLS regression."
+  },
+  {
+    "id": "seed-016",
+    "competency_id": "machine_learning",
+    "question": "What is the main risk of training a model with too many features relative to the number of observations?",
+    "type": "mcq",
+    "options": [
+      "Underfitting",
+      "Overfitting",
+      "Faster training only",
+      "No risk at all"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 3,
+    "explanation": "Too many features relative to observations lets the model fit noise in the training data, causing overfitting."
+  },
+  {
+    "id": "seed-017",
+    "competency_id": "supervised_learning",
+    "question": "In supervised learning, what does the training set provide that unsupervised learning does not use?",
+    "type": "mcq",
+    "options": [
+      "Labelled outcomes/targets",
+      "More rows of data",
+      "Faster computation",
+      "Unlabelled clusters"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 2,
+    "explanation": "Supervised learning trains on labelled examples (inputs paired with known outcomes); unsupervised learning does not use labels."
+  },
+  {
+    "id": "seed-018",
+    "competency_id": "model_evaluation",
+    "question": "For an imbalanced classification problem (95% negative class), which metric is most misleading if used alone?",
+    "type": "mcq",
+    "options": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1 score"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 3,
+    "explanation": "A model predicting the majority class every time scores 95% accuracy despite being useless — accuracy alone is misleading on imbalanced data."
+  },
+  {
+    "id": "seed-019",
+    "competency_id": "regression_analysis",
+    "question": "In a simple linear regression, what does the R-squared value represent?",
+    "type": "mcq",
+    "options": [
+      "The correlation between residuals",
+      "The proportion of variance in the outcome explained by the model",
+      "The number of predictors used",
+      "The p-value of the slope"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 3,
+    "explanation": "R-squared measures how much of the outcome variable's variance is explained by the regression model."
+  },
+  {
+    "id": "seed-020",
+    "competency_id": "sql_query_optimization",
+    "question": "What is typically the first thing to check when a query on a large table is slow?",
+    "type": "mcq",
+    "options": [
+      "Whether an appropriate index exists for the filtered/joined columns",
+      "The font used in the SQL editor",
+      "The number of columns in SELECT *",
+      "The database's backup schedule"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 3,
+    "explanation": "Missing indexes on filtered or joined columns are the most common cause of slow queries on large tables."
+  },
+  {
+    "id": "seed-021",
+    "competency_id": "sql_ctes",
+    "question": "What is a key benefit of using a CTE (WITH clause) over a deeply nested subquery?",
+    "type": "mcq",
+    "options": [
+      "It always runs faster",
+      "It improves readability by naming intermediate result sets",
+      "It removes the need for JOINs",
+      "It bypasses the query optimizer"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "CTEs primarily improve readability and structure by giving intermediate result sets a name, not a guaranteed performance boost."
+  },
+  {
+    "id": "seed-022",
+    "competency_id": "database_administration",
+    "question": "Which practice most directly protects a production database against data loss?",
+    "type": "mcq",
+    "options": [
+      "Regular, tested backups",
+      "Disabling all indexes",
+      "Removing all constraints",
+      "Increasing the connection pool size"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 2,
+    "explanation": "Regular, tested backups are the primary safeguard against data loss in a production database."
+  },
+  {
+    "id": "seed-023",
+    "competency_id": "data_quality_cleaning",
+    "question": "A dataset has duplicate rows from a failed retry during ingestion. What is the correct first step?",
+    "type": "mcq",
+    "options": [
+      "Delete the entire dataset",
+      "Identify and remove the duplicate rows based on a natural key",
+      "Average all duplicate values together",
+      "Ignore it — duplicates rarely matter"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "Identifying duplicates by a natural/business key and removing the redundant rows is the standard first remediation step."
+  },
+  {
+    "id": "seed-024",
+    "competency_id": "gis",
+    "question": "In GIS, what does a 'coordinate reference system' (CRS) define?",
+    "type": "mcq",
+    "options": [
+      "The color scheme of a map",
+      "How 2D/3D coordinates relate to real locations on Earth",
+      "The file format of the dataset",
+      "The name of the map layer"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "A CRS defines how coordinates map to actual locations on the Earth's surface, essential for combining spatial datasets correctly."
+  },
+  {
+    "id": "seed-025",
+    "competency_id": "spatial_data_analysis",
+    "question": "What does a 'spatial join' do that a regular attribute join cannot?",
+    "type": "mcq",
+    "options": [
+      "Joins tables based on geographic relationship (e.g. contains, intersects)",
+      "Joins tables faster than SQL",
+      "Removes the need for a coordinate system",
+      "Joins only numeric columns"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 3,
+    "explanation": "A spatial join matches records based on their geometric relationship (e.g. one polygon containing a point), not shared key values."
+  },
+  {
+    "id": "seed-026",
+    "competency_id": "gis_software_tools",
+    "question": "Which of these is a common vector data format used in GIS software?",
+    "type": "mcq",
+    "options": [
+      "Shapefile (.shp)",
+      "MP3",
+      "CSV without coordinates",
+      "JPEG"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 1,
+    "explanation": "The Shapefile format is one of the most widely used vector formats for storing geographic feature data."
+  },
+  {
+    "id": "seed-027",
+    "competency_id": "database_management",
+    "question": "What is the main purpose of normalization in relational database design?",
+    "type": "mcq",
+    "options": [
+      "To reduce data redundancy and improve integrity",
+      "To make every table have exactly one column",
+      "To remove all foreign keys",
+      "To speed up every query automatically"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 2,
+    "explanation": "Normalization organizes data to reduce redundancy and protect data integrity, though it can trade off against some query performance."
+  },
+  {
+    "id": "seed-028",
+    "competency_id": "relational_database_design",
+    "question": "What does a foreign key constraint enforce between two tables?",
+    "type": "mcq",
+    "options": [
+      "That a column's values must exist in a referenced table's key column",
+      "That both tables have the same number of rows",
+      "That the tables use the same storage engine",
+      "That indexes are automatically created on every column"
+    ],
+    "correct_answer_index": 0,
+    "difficulty": 2,
+    "explanation": "A foreign key constraint ensures referential integrity: values in the referencing column must exist in the referenced table's key."
+  },
+  {
+    "id": "seed-029",
+    "competency_id": "etl_pipelines",
+    "question": "In an ETL pipeline, at which stage is data typically validated and cleaned?",
+    "type": "mcq",
+    "options": [
+      "Extract only",
+      "Transform",
+      "Load only",
+      "Never — validation happens downstream"
+    ],
+    "correct_answer_index": 1,
+    "difficulty": 2,
+    "explanation": "The Transform stage is where data is typically cleaned, validated, and reshaped before loading into the target system."
+  }
+]

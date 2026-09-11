@@ -1,0 +1,40 @@
+{
+  "_note": "Only initial_profile is read by POST /candidates/demo (backend/src/api/candidates.py). Display identity (name, department, cadre) comes from frontend/src/mock/demoData.ts's DEMO_CANDIDATE — Task 4's response shape carries no identity fields for either a real or demo upload. target_role_id/rehearsal_answer_guidance below are presenter rehearsal documentation only, consumed by nothing in code.",
+  "target_role_id": "role-sso-01",
+  "initial_profile": [
+    {
+      "competency_id": "sql",
+      "competency_name": "SQL",
+      "resume_estimated_level": 2.5,
+      "resume_confidence": "MEDIUM",
+      "evidence_snippet": "Wrote SQL queries to pull survey response data for quarterly reporting."
+    },
+    {
+      "competency_id": "python",
+      "competency_name": "Python",
+      "resume_estimated_level": 3.2,
+      "resume_confidence": "MEDIUM",
+      "evidence_snippet": "Used Python (pandas) to clean and merge administrative datasets."
+    },
+    {
+      "competency_id": "statistics",
+      "competency_name": "Statistics",
+      "resume_estimated_level": 3.7,
+      "resume_confidence": "HIGH",
+      "evidence_snippet": "Applied descriptive and inferential statistics to survey estimation, with 3 years producing official statistical reports."
+    }
+  ],
+  "rehearsal_answer_guidance": {
+    "note": "Consumed only by a human presenter during rehearsal — never auto-executed by the backend or frontend. The real assessment never exposes the correct answer to the client before submission (Rule 6), so this cannot be scripted in code. Aim for these outcomes when answering live to reproduce demo_plan.md's SQL/Window-Functions-leads-the-gap story for role-sso-01 (Senior Statistical Officer).",
+    "targets": [
+      { "competency_id": "sql", "aim_for": "incorrect" },
+      { "competency_id": "sql_window_functions", "aim_for": "incorrect" },
+      { "competency_id": "python", "aim_for": "correct" },
+      { "competency_id": "statistics", "aim_for": "correct" },
+      { "competency_id": "inferential_statistics", "aim_for": "correct" },
+      { "competency_id": "survey_methodology", "aim_for": "correct" },
+      { "competency_id": "statistical_report_writing", "aim_for": "correct" },
+      { "competency_id": "data_governance_ethics", "aim_for": "correct" }
+    ]
+  }
+}
