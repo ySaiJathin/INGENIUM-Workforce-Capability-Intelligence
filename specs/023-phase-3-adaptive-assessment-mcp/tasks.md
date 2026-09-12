@@ -19,7 +19,7 @@ points — per spec.md.
 
 ## Phase 1: Setup
 
-- [ ] T001 Confirm Phase 2's `backend/src/mcp/tools.py` exposes working `get_assessment_context`/`get_previous_questions` (run `specs/022-phase-2-llm-mcp-layer/quickstart.md` if not already confirmed this session)
+- [X] T001 Confirm Phase 2's `backend/src/mcp/tools.py` exposes working `get_assessment_context`/`get_previous_questions` (run `specs/022-phase-2-llm-mcp-layer/quickstart.md` if not already confirmed this session)
 
 ---
 
@@ -28,7 +28,7 @@ points — per spec.md.
 **Purpose**: Baseline regression test, captured before any change, per `CLAUDE.md`'s "test
 continuously" and this plan's own regression-safety requirement.
 
-- [ ] T002 Record the current (pre-change) live assessment-loop output for the demo candidate + `role-sso-01` (question sources, competency routing order) as a baseline snapshot, so post-change output can be diffed against it
+- [X] T002 Record the current (pre-change) live assessment-loop output for the demo candidate + `role-sso-01` (question sources, competency routing order) as a baseline snapshot, so post-change output can be diffed against it
 
 **Checkpoint**: Baseline captured — safe to make the change in Phase 3.
 
@@ -45,13 +45,13 @@ matches exactly what `get_assessment_context()` declares.
 
 ### Tests for User Story 1
 
-- [ ] T003 [P] [US1] Test in `backend/tests/test_assessment_engine.py`: `get_next_question()` still returns a question targeting one of the role's required competencies when the MCP layer is healthy
-- [ ] T004 [P] [US1] Test in `backend/tests/test_assessment_engine.py`: when `mcp.tools.get_assessment_context()` raises `MCPToolError`, `get_next_question()` falls back to its current inline context assembly and still returns a valid question (satisfies plan.md's Rule 10 fallback requirement)
+- [X] T003 [P] [US1] Test in `backend/tests/test_assessment_engine.py`: `get_next_question()` still returns a question targeting one of the role's required competencies when the MCP layer is healthy
+- [X] T004 [P] [US1] Test in `backend/tests/test_assessment_engine.py`: when `mcp.tools.get_assessment_context()` raises `MCPToolError`, `get_next_question()` falls back to its current inline context assembly and still returns a valid question (satisfies plan.md's Rule 10 fallback requirement)
 
 ### Implementation for User Story 1
 
-- [ ] T005 [US1] In `backend/src/services/assessment_engine.py::get_next_question()`, replace the inline context-assembly (currently building `previous_questions`/`required_level`/`evidence` directly before calling `generate_question()`) with a call to `mcp.tools.get_assessment_context()` + `mcp.tools.get_previous_questions()`, wrapped in a `try/except MCPToolError` that falls back to the current inline logic on failure
-- [ ] T006 [US1] Re-run T002's baseline scenario and diff against current output — confirm zero behavior change (same competency routing, same fallback-to-seed behavior on Mistral failure)
+- [X] T005 [US1] In `backend/src/services/assessment_engine.py::get_next_question()`, replace the inline context-assembly (currently building `previous_questions`/`required_level`/`evidence` directly before calling `generate_question()`) with a call to `mcp.tools.get_assessment_context()` + `mcp.tools.get_previous_questions()`, wrapped in a `try/except MCPToolError` that falls back to the current inline logic on failure
+- [X] T006 [US1] Re-run T002's baseline scenario and diff against current output — confirm zero behavior change (same competency routing, same fallback-to-seed behavior on Mistral failure)
 
 **Checkpoint**: User Story 1 complete — context now flows through the controlled layer, with a
 proven fallback, and zero regression against the baseline.
@@ -68,9 +68,9 @@ difficulty/competency selection changes as expected and grading never calls the 
 
 ### Implementation for User Story 2
 
-- [ ] T007 [US2] Live-test: submit a correct answer, confirm `updated_difficulty` increases or competency advances per `submit_answer()`'s existing logic (unchanged by this phase)
-- [ ] T008 [US2] Live-test: submit an incorrect answer, confirm the same competency is probed again or a prerequisite is tested, per existing logic
-- [ ] T009 [US2] Code-review confirmation: `submit_answer()` in `backend/src/services/assessment_engine.py` contains zero calls to `mistral_client`/`mcp.tools` for grading — grading remains `selected_index == question.correct_answer_index` only
+- [X] T007 [US2] Live-test: submit a correct answer, confirm `updated_difficulty` increases or competency advances per `submit_answer()`'s existing logic (unchanged by this phase)
+- [X] T008 [US2] Live-test: submit an incorrect answer, confirm the same competency is probed again or a prerequisite is tested, per existing logic
+- [X] T009 [US2] Code-review confirmation: `submit_answer()` in `backend/src/services/assessment_engine.py` contains zero calls to `mistral_client`/`mcp.tools` for grading — grading remains `selected_index == question.correct_answer_index` only
 
 **Checkpoint**: User Story 2 confirmed — no code change needed unless T007-T009 reveal a
 regression from Phase 3's change (none expected, since only context-assembly was touched).
@@ -84,9 +84,9 @@ rewire.
 
 ### Implementation for User Story 3
 
-- [ ] T010 [P] [US3] Live-test: run a session to confidence-threshold completion, confirm clean `"completed"` status
-- [ ] T011 [P] [US3] Live-test: run a session to question-budget exhaustion (already observed this session — 8/10 budget used due to seed exhaustion), confirm clean `"completed"` status rather than an error
-- [ ] T012 [US3] If T011's observed early-completion (seed exhaustion before budget/confidence) is judged to undercut the demo's "visibly adaptive" story per `demo_plan.md` §7, flag this as a data-completeness follow-up (expand `assessment_seed.json` with more than one question per competency) — track as a separate follow-up task, not a Phase 3 functional defect (spec.md's Assumptions already scope this out)
+- [X] T010 [P] [US3] Live-test: run a session to confidence-threshold completion, confirm clean `"completed"` status
+- [X] T011 [P] [US3] Live-test: run a session to question-budget exhaustion (already observed this session — 8/10 budget used due to seed exhaustion), confirm clean `"completed"` status rather than an error
+- [X] T012 [US3] If T011's observed early-completion (seed exhaustion before budget/confidence) is judged to undercut the demo's "visibly adaptive" story per `demo_plan.md` §7, flag this as a data-completeness follow-up (expand `assessment_seed.json` with more than one question per competency) — track as a separate follow-up task, not a Phase 3 functional defect (spec.md's Assumptions already scope this out)
 
 **Checkpoint**: All three user stories verified — Phase 3 complete.
 
@@ -94,8 +94,8 @@ rewire.
 
 ## Phase 6: Polish & Cross-Cutting
 
-- [ ] T013 Run `specs/023-phase-3-adaptive-assessment-mcp/quickstart.md` end to end and record actual output
-- [ ] T014 [P] Update `total_mvp_context.md` §6 if this phase's completion changes the tracked status
+- [X] T013 Run `specs/023-phase-3-adaptive-assessment-mcp/quickstart.md` end to end and record actual output
+- [X] T014 [P] Update `total_mvp_context.md` §6 if this phase's completion changes the tracked status
 
 ---
 

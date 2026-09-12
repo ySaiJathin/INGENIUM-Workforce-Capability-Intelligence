@@ -17,13 +17,13 @@ spec.md.
 
 ## Phase 1: Setup
 
-- [ ] T001 Confirm Phase 3 is complete (assessment produces verified scores this phase's gap computation reads)
+- [X] T001 Confirm Phase 3 is complete (assessment produces verified scores this phase's gap computation reads)
 
 ---
 
 ## Phase 2: Foundational
 
-- [ ] T002 Create `backend/tests/test_gap_engine.py` if it doesn't already exist, with fixtures for a small set of `RoleCompetency`/`VerifiedSkillScore` rows covering: a competency the candidate exceeds, one they exactly meet, one they fall short of, and one they were never assessed on
+- [X] T002 Create `backend/tests/test_gap_engine.py` if it doesn't already exist, with fixtures for a small set of `RoleCompetency`/`VerifiedSkillScore` rows covering: a competency the candidate exceeds, one they exactly meet, one they fall short of, and one they were never assessed on
 
 **Checkpoint**: Test fixtures ready.
 
@@ -39,14 +39,14 @@ fields and the computation is deterministic.
 
 ### Tests for User Story 1
 
-- [ ] T003 [P] [US1] Test in `backend/tests/test_gap_engine.py`: a competency the candidate meets/exceeds does not appear in `rank_gaps()`'s output
-- [ ] T004 [P] [US1] Test in `backend/tests/test_gap_engine.py`: a competency the candidate was never assessed on (no `VerifiedSkillScore` row) still appears with `verified_level=0.0` (FR-004)
-- [ ] T005 [US1] Test in `backend/tests/test_gap_engine.py`: calling `rank_gaps()` twice with identical input produces byte-identical output, including tie-break order (SC-002)
+- [X] T003 [P] [US1] Test in `backend/tests/test_gap_engine.py`: a competency the candidate meets/exceeds does not appear in `rank_gaps()`'s output
+- [X] T004 [P] [US1] Test in `backend/tests/test_gap_engine.py`: a competency the candidate was never assessed on (no `VerifiedSkillScore` row) still appears with `verified_level=0.0` (FR-004)
+- [X] T005 [US1] Test in `backend/tests/test_gap_engine.py`: calling `rank_gaps()` twice with identical input produces byte-identical output, including tie-break order (SC-002)
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Run T003-T005; if any fail, fix `backend/src/services/gap_engine.py`'s `compute_and_persist_gaps()`/`rank_gaps()` accordingly (no failure expected per this session's audit)
-- [ ] T007 [US1] Live-test: `POST /analysis` + `GET /analysis/{id}/gaps` for the demo candidate against `role-sso-01`; confirm every gap in the response shows `required_level`, `verified_level`, `gap`, and `rank` together (FR-003)
+- [X] T006 [US1] Run T003-T005; if any fail, fix `backend/src/services/gap_engine.py`'s `compute_and_persist_gaps()`/`rank_gaps()` accordingly (no failure expected per this session's audit)
+- [X] T007 [US1] Live-test: `POST /analysis` + `GET /analysis/{id}/gaps` for the demo candidate against `role-sso-01`; confirm every gap in the response shows `required_level`, `verified_level`, `gap`, and `rank` together (FR-003)
 
 **Checkpoint**: User Story 1 verified — gap analysis is complete, explainable, and deterministic.
 
@@ -59,9 +59,9 @@ formula.
 
 ### Implementation for User Story 2
 
-- [ ] T008 [US2] Run `grep -rn "kaggle\|job_posting\|job_demand" backend/src/services/gap_engine.py backend/src/models/` and confirm zero matches (SC-003)
-- [ ] T009 [US2] Test in `backend/tests/test_gap_engine.py`: two gaps with identical magnitude but different `RoleCompetency.priority` values rank the higher-priority one first
-- [ ] T010 [US2] Document, in this feature's spec.md or a code comment in `gap_engine.py`, that `priority` inputs are limited to gap magnitude + role-declared `RoleCompetency.priority` (research.md §6's decision — no new demand source introduced)
+- [X] T008 [US2] Run `grep -rn "kaggle\|job_posting\|job_demand" backend/src/services/gap_engine.py backend/src/models/` and confirm zero matches (SC-003)
+- [X] T009 [US2] Test in `backend/tests/test_gap_engine.py`: two gaps with identical magnitude but different `RoleCompetency.priority` values rank the higher-priority one first
+- [X] T010 [US2] Document, in this feature's spec.md or a code comment in `gap_engine.py`, that `priority` inputs are limited to gap magnitude + role-declared `RoleCompetency.priority` (research.md §6's decision — no new demand source introduced)
 
 **Checkpoint**: Both user stories verified — Phase 4 complete.
 
@@ -69,7 +69,7 @@ formula.
 
 ## Phase 5: Polish & Cross-Cutting
 
-- [ ] T011 Run `specs/024-phase-4-competency-intelligence/quickstart.md` end to end and record actual output
+- [X] T011 Run `specs/024-phase-4-competency-intelligence/quickstart.md` end to end and record actual output
 
 ---
 

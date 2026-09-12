@@ -681,7 +681,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const existing = byId.get(rec.course_id);
           if (existing) byId.set(rec.course_id, applyCourseRecommendation(existing, rec));
         });
-        return Array.from(byId.values()).sort((a, b) => b.matchScore - a.matchScore);
+        // Bug fix (found while live-testing the golden path): matchScore is null for an exact/
+        // deterministic match (see types/index.ts) and must sort ABOVE every semantic-fallback
+        // match, per course_recommendation_engine.py's own rule that a semantic score never
+        // outranks an exact match — treat null as +Infinity here, not 0/NaN.
+        const rank = (c: Course) => (c.matchScore == null ? Infinity : c.matchScore);
+        return Array.from(byId.values()).sort((a, b) => rank(b) - rank(a));
       });
       // FR-005/FR-008: track which courses are actual recommendations (not the whole catalog) and
       // which gaps have no matching course at all — both previously dropped entirely.

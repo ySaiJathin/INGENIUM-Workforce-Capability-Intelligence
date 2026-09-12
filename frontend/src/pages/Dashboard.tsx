@@ -165,7 +165,7 @@ export const Dashboard: React.FC = () => {
                     {course.provider}
                   </span>
                   <span className="text-xs font-bold text-emerald-700 font-mono">
-                    {course.matchScore}% Match
+                    {course.matchScore == null ? 'Exact Match' : `${course.matchScore}% Match`}
                   </span>
                 </div>
                 <h4 className="text-xs font-bold text-slate-900">{course.title}</h4>

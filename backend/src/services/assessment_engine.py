@@ -22,10 +22,12 @@ from backend.src.models import (
     AssessmentSession,
     Competency,
     Question,
-    Role,
     RoleCompetency,
     SkillEvidence,
 )
+from backend.src.mcp import tools as mcp_tools
+from backend.src.mcp.tools import MCPToolError
+from backend.src.schemas.mcp import AssessmentContextRequest
 from backend.src.services import seed_questions
 from backend.src.services.mistral_client import MistralQuestionGenerationError, generate_question
 
@@ -138,18 +140,34 @@ def get_next_question(db: Session, session: AssessmentSession) -> Question | Non
         _complete_session(db, session)
         return None
 
-    competency = db.get(Competency, competency_id)
-    evidence = db.get(SkillEvidence, {"session_id": session.id, "competency_id": competency_id})
-    previous_questions = [
-        q.prompt for q in db.execute(select(Question).where(Question.session_id == session.id)).scalars().all()
-    ]
-    already_asked = set(previous_questions)
+    # Phase 3 (specs/023-phase-3-adaptive-assessment-mcp): context assembly now goes through the
+    # MCP tool layer (Phase 2) instead of being built inline here — this is the actual "MCP-wired"
+    # change this phase makes. On any MCPToolError, fall back to the exact inline assembly this
+    # function used before (Rule 10: MCP must never be a single point of failure). The routing
+    # decision above (select_next_competency) is unchanged either way.
+    try:
+        context = mcp_tools.get_assessment_context(db, AssessmentContextRequest(session_id=session.id))
+        # Trust MCP's own competency selection (it re-derives the same routing logic — see
+        # backend/src/mcp/tools.py's module docstring on why it doesn't import this module) over
+        # the locally-computed one, so the two paths can never disagree about what's being asked.
+        competency_id = context.target_competency_id
+        competency = db.get(Competency, competency_id)
+        evidence = db.get(SkillEvidence, {"session_id": session.id, "competency_id": competency_id})
+        previous_questions = context.previous_questions
+        required_level = context.required_level
+    except MCPToolError as exc:
+        logger.warning("MCP context assembly failed for session %s, falling back to inline assembly: %s", session.id, exc)
+        competency = db.get(Competency, competency_id)
+        evidence = db.get(SkillEvidence, {"session_id": session.id, "competency_id": competency_id})
+        previous_questions = [
+            q.prompt for q in db.execute(select(Question).where(Question.session_id == session.id)).scalars().all()
+        ]
+        required_level = next(
+            (rc.required_level for rc in _role_competencies(db, session.target_role_id) if rc.competency_id == competency_id),
+            None,
+        )
 
-    role = db.get(Role, session.target_role_id)
-    required_level = next(
-        (rc.required_level for rc in _role_competencies(db, session.target_role_id) if rc.competency_id == competency_id),
-        None,
-    )
+    already_asked = set(previous_questions)
 
     prompt = None
     options: list[str] = []

@@ -32,7 +32,16 @@ export const RoleRequirements: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roleId]);
 
-  const activeRole = allRoles.find((r) => r.id === roleId) || targetRole;
+  // Bug fix (found while live-testing the golden path): this used to be
+  // `allRoles.find((r) => r.id === roleId) || targetRole`, which always preferred the
+  // competency-less summary object from `allRoles` (mapRoleSummaryToTargetRole sets
+  // `requiredCompetencies: []` since GET /roles doesn't return them) over `targetRole`, which
+  // selectTargetRole() above actually populates with the full required_competencies from
+  // GET /roles/{id}. That made every role's requirements table silently render as "0
+  // Competencies Mandated" with an empty matrix, regardless of what the backend returned. Prefer
+  // the fully-populated targetRole whenever it matches the role being viewed; fall back to the
+  // lightweight summary only while that fetch is still in flight (or hasn't started).
+  const activeRole = targetRole.id === roleId ? targetRole : allRoles.find((r) => r.id === roleId) || targetRole;
 
   if (loading.targetRole) {
     return <LoadingState label="Loading role requirements…" />;

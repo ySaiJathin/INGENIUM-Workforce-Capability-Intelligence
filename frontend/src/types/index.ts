@@ -181,7 +181,13 @@ export interface Course {
     fromLevel: CompetencyLevelNumber;
     toLevel: CompetencyLevelNumber;
   };
-  matchScore: number; // e.g. 94%
+  // Bug fix (found while live-testing the golden path): null means the backend's deterministic
+  // (exact competency-overlap) matcher found this course — course_recommendation_engine.py
+  // deliberately leaves match_score unset for those, since an exact match is a *stronger* signal
+  // than any numeric similarity score, never a weaker one. A number means the semantic-similarity
+  // fallback matched it instead. Previously this defaulted to 0 and rendered as a misleading
+  // "0% Match" badge on every exact-matched course — the majority of real recommendations.
+  matchScore: number | null; // e.g. 94, or null for an exact/deterministic match
   priority: 'CRITICAL' | 'HIGH' | 'MEDIUM';
   modules: {
     title: string;

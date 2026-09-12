@@ -18,13 +18,13 @@ per spec.md.
 
 ## Phase 1: Setup
 
-- [ ] T001 Confirm Phase 4 is complete (gap analysis produces the `SkillGap` rows this phase's matcher reads)
+- [X] T001 Confirm Phase 4 is complete (gap analysis produces the `SkillGap` rows this phase's matcher reads)
 
 ---
 
 ## Phase 2: Foundational
 
-- [ ] T002 Create `backend/tests/test_course_recommendation_engine.py` if it doesn't already exist, with fixtures for: a gap with an exact-tagged course, a gap with only a semantically-similar course, a gap with no course at all, and a course tagged to multiple gaps
+- [X] T002 Create `backend/tests/test_course_recommendation_engine.py` if it doesn't already exist, with fixtures for: a gap with an exact-tagged course, a gap with only a semantically-similar course, a gap with no course at all, and a course tagged to multiple gaps
 
 **Checkpoint**: Test fixtures ready.
 
@@ -37,14 +37,14 @@ deterministically.
 
 ### Tests for User Story 1
 
-- [ ] T003 [P] [US1] Test in `backend/tests/test_course_recommendation_engine.py`: `match_courses_for_analysis()` returns a `match_reason` string naming the matched competency for every recommendation
-- [ ] T004 [P] [US1] Test in `backend/tests/test_course_recommendation_engine.py`: calling `match_courses_for_analysis()` twice on identical gap/catalogue data returns identical rankings (SC-002)
-- [ ] T005 [US1] Test in `backend/tests/test_course_recommendation_engine.py`: a gap with no matching course (exact or semantic) appears in `unmatched_gaps`, not paired with an unrelated course (FR-003)
+- [X] T003 [P] [US1] Test in `backend/tests/test_course_recommendation_engine.py`: `match_courses_for_analysis()` returns a `match_reason` string naming the matched competency for every recommendation
+- [X] T004 [P] [US1] Test in `backend/tests/test_course_recommendation_engine.py`: calling `match_courses_for_analysis()` twice on identical gap/catalogue data returns identical rankings (SC-002)
+- [X] T005 [US1] Test in `backend/tests/test_course_recommendation_engine.py`: a gap with no matching course (exact or semantic) appears in `unmatched_gaps`, not paired with an unrelated course (FR-003)
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Run T003-T005; fix `backend/src/services/course_recommendation_engine.py` only if a real gap is found (none expected per this session's audit)
-- [ ] T007 [US1] Live-test: `GET /analysis/{id}/courses` for the demo candidate; confirm every recommendation has `matched_gaps` + `match_reason` populated (SC-001)
+- [X] T006 [US1] Run T003-T005; fix `backend/src/services/course_recommendation_engine.py` only if a real gap is found (none expected per this session's audit)
+- [X] T007 [US1] Live-test: `GET /analysis/{id}/courses` for the demo candidate; confirm every recommendation has `matched_gaps` + `match_reason` populated (SC-001)
 
 **Checkpoint**: User Story 1 verified.
 
@@ -57,13 +57,13 @@ grouping (FR-005).
 
 ### Tests for User Story 2
 
-- [ ] T008 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: for a gap with both an exact-tagged course and a merely-similar course present, `deterministic_overlap()`'s result is used (not `semantic_fallback()`'s) — confirm via `match_courses_for_analysis()`'s output `match_score` being `None` (exact match marker per current code) rather than a similarity float
-- [ ] T009 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: a course addressing two gaps in the same analysis appears exactly once in the recommendations list, with both gaps in `matched_gaps` (SC-004)
-- [ ] T010 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: forcing `semantic_fallback()` to raise is caught and treated as "no match" for that gap, never propagated as a request-level error (FR-006)
+- [X] T008 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: for a gap with both an exact-tagged course and a merely-similar course present, `deterministic_overlap()`'s result is used (not `semantic_fallback()`'s) — confirm via `match_courses_for_analysis()`'s output `match_score` being `None` (exact match marker per current code) rather than a similarity float
+- [X] T009 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: a course addressing two gaps in the same analysis appears exactly once in the recommendations list, with both gaps in `matched_gaps` (SC-004)
+- [X] T010 [US2] Test in `backend/tests/test_course_recommendation_engine.py`: forcing `semantic_fallback()` to raise is caught and treated as "no match" for that gap, never propagated as a request-level error (FR-006)
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] Run T008-T010; fix `backend/src/services/course_recommendation_engine.py` only if a real gap is found (none expected per this session's audit)
+- [X] T011 [US2] Run T008-T010; fix `backend/src/services/course_recommendation_engine.py` only if a real gap is found (none expected per this session's audit)
 
 **Checkpoint**: Both user stories verified — Phase 5 complete.
 
@@ -71,7 +71,7 @@ grouping (FR-005).
 
 ## Phase 5: Polish & Cross-Cutting
 
-- [ ] T012 Run `specs/025-phase-5-course-intelligence/quickstart.md` end to end and record actual output
+- [X] T012 Run `specs/025-phase-5-course-intelligence/quickstart.md` end to end and record actual output
 
 ---
 

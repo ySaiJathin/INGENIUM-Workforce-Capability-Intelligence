@@ -1,4 +1,11 @@
-"""Task 8 — Skill Gap Engine."""
+"""Task 8 — Skill Gap Engine.
+
+Phase 4 (specs/024-phase-4-competency-intelligence) confirmation note: the three weighted inputs
+below (gap magnitude, role-declared priority, prerequisite importance) are the complete, deliberate
+set of signals this ranking uses. No third-party demand dataset (e.g., the retired Kaggle
+job-postings data — see total_mvp_context.md §2/§8) is used or should be reintroduced here; if a
+legitimate current demand signal becomes available in the future, it would be added as a fourth
+weighted term, not by repurposing W_ROLE_PRIORITY."""
 
 from __future__ import annotations
 

@@ -34,7 +34,9 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </div>
           <div className="flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
             <Sparkles className="w-3 h-3 text-emerald-600" />
-            <span className="text-xs font-bold text-emerald-800 font-mono">{course.matchScore}% Match</span>
+            <span className="text-xs font-bold text-emerald-800 font-mono">
+              {course.matchScore == null ? 'Exact Match' : `${course.matchScore}% Match`}
+            </span>
           </div>
         </div>
 

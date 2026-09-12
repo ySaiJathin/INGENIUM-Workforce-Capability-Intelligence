@@ -145,7 +145,7 @@ export function mapCourseSummary(course: ApiCourseSummary): Course {
     targetGapCompetencies: course.competencies_covered,
     closesGapDescription: course.description,
     expectedPathway: { fromLevel: 1, toLevel: 4 },
-    matchScore: 0,
+    matchScore: null,
     priority: 'MEDIUM',
     modules: [],
     prerequisites: [],
