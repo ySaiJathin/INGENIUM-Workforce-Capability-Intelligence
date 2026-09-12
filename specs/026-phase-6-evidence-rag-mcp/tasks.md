@@ -20,8 +20,8 @@ live — per spec.md.
 
 ## Phase 1: Setup
 
-- [ ] T001 Add `faiss-cpu` to `requirements.txt` (the second and final authorized new dependency per `CLAUDE.md`'s updated Rule 12) and install it into `.venv`
-- [ ] T002 [P] Create `backend/src/schemas/evidence.py` with the `EvidenceItem` model per `data-model.md`
+- [x] T001 Add `faiss-cpu` to `requirements.txt` (the second and final authorized new dependency per `CLAUDE.md`'s updated Rule 12) and install it into `.venv`
+- [x] T002 [P] Create `backend/src/schemas/evidence.py` with the `EvidenceItem` model per `data-model.md`
 
 ---
 
@@ -31,8 +31,8 @@ live — per spec.md.
 
 **⚠️ CRITICAL**: Both user stories depend on a built index existing.
 
-- [ ] T003 Write `backend/src/scripts/build_evidence_index.py`: read `data/curated/competencies.json`, `data/curated/roles.json`, `data/curated/courses.json` (+ optionally a bounded ESCO slice referenced by curated `esco_source_id`/`esco_occupation_id` fields), build one `EvidenceItem` per record (id encoding `source_type:source_id`), embed each with `all-MiniLM-L6-v2` (`normalize_embeddings=True`), build a `faiss.IndexFlatIP`, write `data/index/evidence.faiss` + `data/index/evidence_meta.json`
-- [ ] T004 Run `build_evidence_index.py` once; confirm the printed item count matches `len(competencies) + len(roles) + len(courses)` (+ ESCO slice size if used)
+- [x] T003 Write `backend/src/scripts/build_evidence_index.py`: read `data/curated/competencies.json`, `data/curated/roles.json`, `data/curated/courses.json` (+ optionally a bounded ESCO slice referenced by curated `esco_source_id`/`esco_occupation_id` fields), build one `EvidenceItem` per record (id encoding `source_type:source_id`), embed each with `all-MiniLM-L6-v2` (`normalize_embeddings=True`), build a `faiss.IndexFlatIP`, write `data/index/evidence.faiss` + `data/index/evidence_meta.json`
+- [x] T004 Run `build_evidence_index.py` once; confirm the printed item count matches `len(competencies) + len(roles) + len(courses)` (+ ESCO slice size if used)
 
 **Checkpoint**: A real, queryable evidence index exists on disk.
 
@@ -47,14 +47,14 @@ sourced results and no rebuild between queries.
 
 ### Tests for User Story 2
 
-- [ ] T005 [P] [US2] Test in `backend/tests/test_evidence_engine.py`: querying a topic matching a real competency's name/description returns that `EvidenceItem` among the top results
-- [ ] T006 [P] [US2] Test in `backend/tests/test_evidence_engine.py`: querying twice in a row does not call the index-build function again (patch/mock the loader and assert single invocation) — proves SC-002's "no rebuild between queries"
-- [ ] T007 [US2] Test in `backend/tests/test_evidence_engine.py`: querying against a missing index (rename/delete `data/index/evidence.faiss` in a fixture temp dir) raises a clear, typed error — never a crash — satisfying the Edge Case "index not yet built"
+- [x] T005 [P] [US2] Test in `backend/tests/test_evidence_engine.py`: querying a topic matching a real competency's name/description returns that `EvidenceItem` among the top results
+- [x] T006 [P] [US2] Test in `backend/tests/test_evidence_engine.py`: querying twice in a row does not call the index-build function again (patch/mock the loader and assert single invocation) — proves SC-002's "no rebuild between queries"
+- [x] T007 [US2] Test in `backend/tests/test_evidence_engine.py`: querying against a missing index (rename/delete `data/index/evidence.faiss` in a fixture temp dir) raises a clear, typed error — never a crash — satisfying the Edge Case "index not yet built"
 
 ### Implementation for User Story 2
 
-- [ ] T008 [US2] Implement `backend/src/services/evidence_engine.py`: a lazy singleton loader for the FAISS index + `evidence_meta.json` (pattern matching `course_recommendation_engine.py`'s `_get_model()`/`_get_course_embeddings()`), and a `query(text: str, top_k: int = 5) -> list[EvidenceItem]` function using cosine similarity via `IndexFlatIP`
-- [ ] T009 [US2] Wire `backend/src/mcp/tools.py::get_relevant_evidence` (stubbed in Phase 2 to always raise) to call `evidence_engine.query()`, returning a real `RelevantEvidenceResult` and converting "index missing" into `MCPToolError(reason="index_unavailable")`
+- [x] T008 [US2] Implement `backend/src/services/evidence_engine.py`: a lazy singleton loader for the FAISS index + `evidence_meta.json` (pattern matching `course_recommendation_engine.py`'s `_get_model()`/`_get_course_embeddings()`), and a `query(text: str, top_k: int = 5) -> list[EvidenceItem]` function using cosine similarity via `IndexFlatIP`
+- [x] T009 [US2] Wire `backend/src/mcp/tools.py::get_relevant_evidence` (stubbed in Phase 2 to always raise) to call `evidence_engine.query()`, returning a real `RelevantEvidenceResult` and converting "index missing" into `MCPToolError(reason="index_unavailable")`
 
 **Checkpoint**: User Story 2 complete — evidence is retrievable and traceable.
 
@@ -70,17 +70,17 @@ entity traces to evidence or supplied deterministic data.
 
 ### Tests for User Story 1
 
-- [ ] T010 [P] [US1] Test in `backend/tests/test_learning_plan_planner.py`: given a mocked Mistral response referencing only real supplied courses/gaps/evidence, the grounding validator reports `grounded=True` and `removed_claims=[]`
-- [ ] T011 [P] [US1] Test in `backend/tests/test_learning_plan_planner.py`: given a mocked Mistral response referencing a fabricated course name not in the supplied data, the grounding validator strips that reference and reports it in `removed_claims` (SC-001 — this is the central test of the whole phase)
-- [ ] T012 [US1] Test in `backend/tests/test_learning_plan_planner.py`: the plan's step ordering always matches the input gap/course order exactly, even if the mocked Mistral response tries to reorder steps (FR-006/SC-004)
-- [ ] T013 [US1] Test in `backend/tests/test_learning_plan_planner.py`: when Mistral or `evidence_engine` raises, `build_grounded_learning_path()` falls back to calling `learning_path_engine.py`'s existing deterministic function and returns a valid plan with `grounding=None` (FR-007/SC-003)
+- [x] T010 [P] [US1] Test in `backend/tests/test_learning_plan_planner.py`: given a mocked Mistral response referencing only real supplied courses/gaps/evidence, the grounding validator reports `grounded=True` and `removed_claims=[]`
+- [x] T011 [P] [US1] Test in `backend/tests/test_learning_plan_planner.py`: given a mocked Mistral response referencing a fabricated course name not in the supplied data, the grounding validator strips that reference and reports it in `removed_claims` (SC-001 — this is the central test of the whole phase)
+- [x] T012 [US1] Test in `backend/tests/test_learning_plan_planner.py`: the plan's step ordering always matches the input gap/course order exactly, even if the mocked Mistral response tries to reorder steps (FR-006/SC-004)
+- [x] T013 [US1] Test in `backend/tests/test_learning_plan_planner.py`: when Mistral or `evidence_engine` raises, `build_grounded_learning_path()` falls back to calling `learning_path_engine.py`'s existing deterministic function and returns a valid plan with `grounding=None` (FR-007/SC-003)
 
 ### Implementation for User Story 1
 
-- [ ] T014 [US1] Implement `backend/src/services/learning_plan_planner.py`: assemble candidate verified profile + priority gaps (via `mcp.tools.get_gap_analysis`) + recommended courses (via `mcp.tools.get_course_recommendations`) + retrieved evidence (via `mcp.tools.get_relevant_evidence`, querying per top gap/course), call `mistral_client` with a RAG-planner prompt instructing it to use only supplied material (no new prompt constant needed beyond following `BASE_RULES`'s existing pattern in `mistral_client.py`)
-- [ ] T015 [US1] Implement the grounding validator in `learning_plan_planner.py`: extract every course/provider/skill/duration string the generated plan text references, check membership against the supplied gaps/courses/evidence, strip unsupported ones, build a `GroundingReport` (`supported_claims`, `removed_claims`, `grounded`)
-- [ ] T016 [US1] Implement the deterministic fallback path in `learning_plan_planner.py` (or delegate to the existing `learning_path_engine.py` unchanged) for when Mistral/evidence retrieval is unavailable, returning `grounding=None`
-- [ ] T017 [US1] Modify `backend/src/api/learning_path.py`: call `learning_plan_planner.build_grounded_learning_path()` first, falling back to `learning_path_engine.py`'s existing function on any failure; add the additive `grounding: GroundingReport | None` field to the response (no existing field renamed/removed — confirm `frontend/src/pages/LearningPath.tsx` and `frontend/src/components/learning/LearningPathTimeline.tsx` still work unchanged, since `rationale` was already optional)
+- [x] T014 [US1] Implement `backend/src/services/learning_plan_planner.py`: assemble candidate verified profile + priority gaps (via `mcp.tools.get_gap_analysis`) + recommended courses (via `mcp.tools.get_course_recommendations`) + retrieved evidence (via `mcp.tools.get_relevant_evidence`, querying per top gap/course), call `mistral_client` with a RAG-planner prompt instructing it to use only supplied material (no new prompt constant needed beyond following `BASE_RULES`'s existing pattern in `mistral_client.py`)
+- [x] T015 [US1] Implement the grounding validator in `learning_plan_planner.py`: extract every course/provider/skill/duration string the generated plan text references, check membership against the supplied gaps/courses/evidence, strip unsupported ones, build a `GroundingReport` (`supported_claims`, `removed_claims`, `grounded`)
+- [x] T016 [US1] Implement the deterministic fallback path in `learning_plan_planner.py` (or delegate to the existing `learning_path_engine.py` unchanged) for when Mistral/evidence retrieval is unavailable, returning `grounding=None`
+- [x] T017 [US1] Modify `backend/src/api/learning_path.py`: call `learning_plan_planner.build_grounded_learning_path()` first, falling back to `learning_path_engine.py`'s existing function on any failure; add the additive `grounding: GroundingReport | None` field to the response (no existing field renamed/removed — confirm `frontend/src/pages/LearningPath.tsx` and `frontend/src/components/learning/LearningPathTimeline.tsx` still work unchanged, since `rationale` was already optional)
 
 **Checkpoint**: User Story 1 complete — grounded learning plans work, with a proven, tested
 fallback. Phase 6 (and the whole master-document initiative) is functionally complete at this
@@ -90,9 +90,9 @@ point.
 
 ## Phase 5: Polish & Cross-Cutting
 
-- [ ] T018 Run `specs/026-phase-6-evidence-rag-mcp/quickstart.md` end to end and record actual output
-- [ ] T019 [P] Update `README.md` with a note on when to re-run `build_evidence_index.py` (whenever `data/curated/*.json` changes) since the index is never rebuilt automatically
-- [ ] T020 Confirm `frontend/src/pages/LearningPath.tsx` renders correctly with `grounding: null` (fallback case) and doesn't crash if the new field is simply absent from an older cached response — per Rule 3's "search all consumers" check
+- [x] T018 Run `specs/026-phase-6-evidence-rag-mcp/quickstart.md` end to end and record actual output
+- [x] T019 [P] Update `README.md` with a note on when to re-run `build_evidence_index.py` (whenever `data/curated/*.json` changes) since the index is never rebuilt automatically
+- [x] T020 Confirm `frontend/src/pages/LearningPath.tsx` renders correctly with `grounding: null` (fallback case) and doesn't crash if the new field is simply absent from an older cached response — per Rule 3's "search all consumers" check
 
 ---
 

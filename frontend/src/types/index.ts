@@ -380,10 +380,20 @@ export interface ApiLearningPathStepItem {
   rationale: string | null;
 }
 
+export interface ApiGroundingReport {
+  supported_claims: string[];
+  removed_claims: string[];
+  grounded: boolean;
+}
+
 export interface ApiLearningPathResponse {
   learning_path_id: string;
   analysis_id: string;
   steps: ApiLearningPathStepItem[];
   gaps_without_courses: string[];
   message: string | null;
+  // Phase 6 (specs/026-phase-6-evidence-rag-mcp): additive field. Non-null when the RAG-grounded
+  // planner succeeded, null when the deterministic fallback was used. Optional too, so an older
+  // cached response missing the field entirely still type-checks and renders unchanged.
+  grounding?: ApiGroundingReport | null;
 }

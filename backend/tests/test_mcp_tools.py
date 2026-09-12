@@ -116,11 +116,14 @@ def test_get_course_recommendations_unknown_id_raises_typed_error(db):
     assert exc_info.value.reason == "not_found"
 
 
-def test_get_relevant_evidence_always_raises_index_unavailable_this_phase(db):
-    """FR (Phase 2 spec): get_relevant_evidence is stubbed until Phase 6 wires it up."""
-    with pytest.raises(MCPToolError) as exc_info:
-        tools.get_relevant_evidence(db, RelevantEvidenceRequest(query="SQL window functions"))
-    assert exc_info.value.reason == "index_unavailable"
+def test_get_relevant_evidence_returns_real_results_now_phase_6_wired_it_up(db):
+    """Phase 6 (specs/026-phase-6-evidence-rag-mcp) wired this tool to evidence_engine.py's real
+    FAISS query — superseding the Phase 2 stub that always raised. Full retrieval-quality/
+    error-path coverage lives in backend/tests/test_evidence_engine.py; this just confirms the
+    tool itself returns a well-formed result."""
+    result = tools.get_relevant_evidence(db, RelevantEvidenceRequest(query="SQL window functions", top_k=3))
+    assert len(result.items) > 0
+    assert all("id" in item and "text" in item for item in result.items)
 
 
 # --- Success-path / scoping tests (User Story 1: only declared fields, no leakage) ---

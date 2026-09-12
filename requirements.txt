@@ -34,3 +34,7 @@ httpx>=0.27
 # authorized new dependency per CLAUDE.md's updated Rule 12 (the one architecture change this
 # initiative makes beyond the frozen original stack, alongside faiss-cpu for Phase 6).
 mcp>=2.2
+
+# FAISS evidence index (Phase 6) — the second and final authorized new dependency per the same
+# rule change; CPU-only is sufficient at this corpus size (low hundreds of chunks).
+faiss-cpu>=1.9

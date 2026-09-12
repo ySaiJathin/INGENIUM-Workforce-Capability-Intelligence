@@ -22,6 +22,19 @@ that no longer matched the checked-in source (a resume-extraction fallback that 
 replaced); always verify a running backend against `curl http://localhost:8000/health` plus a
 resume-upload smoke test before trusting it for further testing.
 
+## Evidence index (Phase 6 — RAG grounding)
+
+```bash
+.venv/Scripts/python.exe backend/src/scripts/build_evidence_index.py
+```
+
+Builds `data/index/evidence.faiss` + `data/index/evidence_meta.json` from
+`data/curated/{competencies,roles,courses}.json`. This index is **never rebuilt automatically** —
+`backend/src/services/evidence_engine.py` only ever loads what this script already wrote
+(`specs/026-phase-6-evidence-rag-mcp`'s FR-003). Re-run it by hand whenever any file under
+`data/curated/` changes; forgetting to do so does not crash anything, but grounded learning-plan
+evidence will keep citing the stale, previously-indexed content until you do.
+
 ## Frontend
 
 ```bash

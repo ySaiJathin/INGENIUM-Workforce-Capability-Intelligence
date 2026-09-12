@@ -9,14 +9,17 @@ from sqlalchemy.orm import Session
 
 from backend.src.db import get_db
 from backend.src.schemas.learning_path import LearningPathRequest, LearningPathResponse
-from backend.src.services import learning_path_engine
+from backend.src.services import learning_path_engine, learning_plan_planner
 
 router = APIRouter()
 
 
 @router.post("/learning-path", response_model=LearningPathResponse, status_code=201)
 def create_learning_path(body: LearningPathRequest, db: Session = Depends(get_db)) -> LearningPathResponse:
-    result = learning_path_engine.build_learning_path(db, body.analysis_id)
+    # Phase 6: the grounded planner wraps the same deterministic build_learning_path() this
+    # endpoint always called — it falls back to that identical, unmodified result (grounding=None)
+    # on any failure, so this call can never behave worse than the pre-Phase-6 endpoint (Rule 10).
+    result = learning_plan_planner.build_grounded_learning_path(db, body.analysis_id)
     return LearningPathResponse(**result)
 
 

@@ -6,6 +6,8 @@ import uuid
 
 from pydantic import BaseModel
 
+from backend.src.schemas.evidence import GroundingReport
+
 
 class LearningPathRequest(BaseModel):
     analysis_id: uuid.UUID
@@ -25,3 +27,8 @@ class LearningPathResponse(BaseModel):
     steps: list[LearningPathStepItem]
     gaps_without_courses: list[str]
     message: str | None = None
+    # Phase 6 (specs/026-phase-6-evidence-rag-mcp): additive field, per data-model.md — non-null
+    # (grounded=True, removed_claims small/empty) when the RAG planner succeeded, null when the
+    # deterministic-only fallback was used (FR-007). No existing field is renamed/removed, so
+    # every existing consumer (frontend/src/pages/LearningPath.tsx) works unchanged either way.
+    grounding: GroundingReport | None = None

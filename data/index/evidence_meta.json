@@ -1,0 +1,422 @@
+[
+  {
+    "id": "competency:sql",
+    "source_type": "competency",
+    "source_id": "sql",
+    "text": "SQL. Writing and reasoning about SQL queries against relational databases."
+  },
+  {
+    "id": "competency:sql_select_filtering",
+    "source_type": "competency",
+    "source_id": "sql_select_filtering",
+    "text": "SQL SELECT & Filtering. Basic SELECT statements, WHERE clauses, and filtering rows."
+  },
+  {
+    "id": "competency:sql_joins",
+    "source_type": "competency",
+    "source_id": "sql_joins",
+    "text": "SQL Joins. Combining rows from multiple tables with INNER/LEFT/RIGHT/FULL joins."
+  },
+  {
+    "id": "competency:sql_aggregation",
+    "source_type": "competency",
+    "source_id": "sql_aggregation",
+    "text": "SQL Aggregation & HAVING. GROUP BY, aggregate functions, and filtering aggregated results."
+  },
+  {
+    "id": "competency:sql_window_functions",
+    "source_type": "competency",
+    "source_id": "sql_window_functions",
+    "text": "SQL Window Functions. Ranking, running totals, and partitioned analytics with window functions."
+  },
+  {
+    "id": "competency:sql_ctes",
+    "source_type": "competency",
+    "source_id": "sql_ctes",
+    "text": "SQL CTEs. Structuring complex queries with common table expressions."
+  },
+  {
+    "id": "competency:sql_query_optimization",
+    "source_type": "competency",
+    "source_id": "sql_query_optimization",
+    "text": "SQL Query Optimization. Reading execution plans and tuning slow queries over large datasets."
+  },
+  {
+    "id": "competency:python",
+    "source_type": "competency",
+    "source_id": "python",
+    "text": "Python. General-purpose Python programming for data and analysis tasks."
+  },
+  {
+    "id": "competency:python_data_manipulation",
+    "source_type": "competency",
+    "source_id": "python_data_manipulation",
+    "text": "Python Data Manipulation. Cleaning, reshaping, and joining datasets with pandas."
+  },
+  {
+    "id": "competency:python_statistical_computing",
+    "source_type": "competency",
+    "source_id": "python_statistical_computing",
+    "text": "Python Statistical Computing. Applying statistical methods and modelling in Python (NumPy/SciPy/statsmodels)."
+  },
+  {
+    "id": "competency:statistics",
+    "source_type": "competency",
+    "source_id": "statistics",
+    "text": "Statistics. Applying statistical analysis techniques to real datasets."
+  },
+  {
+    "id": "competency:descriptive_statistics",
+    "source_type": "competency",
+    "source_id": "descriptive_statistics",
+    "text": "Descriptive Statistics. Summarizing data with measures of central tendency and dispersion."
+  },
+  {
+    "id": "competency:inferential_statistics",
+    "source_type": "competency",
+    "source_id": "inferential_statistics",
+    "text": "Inferential Statistics. Hypothesis testing, confidence intervals, and generalizing from samples."
+  },
+  {
+    "id": "competency:survey_methodology",
+    "source_type": "competency",
+    "source_id": "survey_methodology",
+    "text": "Survey Methodology. Sampling design, weighting, and variance estimation for complex surveys."
+  },
+  {
+    "id": "competency:regression_analysis",
+    "source_type": "competency",
+    "source_id": "regression_analysis",
+    "text": "Regression Analysis. Linear and logistic regression modelling and interpretation."
+  },
+  {
+    "id": "competency:data_visualization",
+    "source_type": "competency",
+    "source_id": "data_visualization",
+    "text": "Data Visualization. Communicating data findings through effective visual design."
+  },
+  {
+    "id": "competency:dashboard_design",
+    "source_type": "competency",
+    "source_id": "dashboard_design",
+    "text": "Dashboard Design. Building interactive dashboards for non-technical stakeholders."
+  },
+  {
+    "id": "competency:statistical_charting",
+    "source_type": "competency",
+    "source_id": "statistical_charting",
+    "text": "Statistical Charting. Choosing and building the right chart type for a statistical claim."
+  },
+  {
+    "id": "competency:machine_learning",
+    "source_type": "competency",
+    "source_id": "machine_learning",
+    "text": "Machine Learning. Applying machine learning techniques to structured data problems."
+  },
+  {
+    "id": "competency:supervised_learning",
+    "source_type": "competency",
+    "source_id": "supervised_learning",
+    "text": "Supervised Learning. Training and validating classification/regression models."
+  },
+  {
+    "id": "competency:model_evaluation",
+    "source_type": "competency",
+    "source_id": "model_evaluation",
+    "text": "Model Evaluation. Choosing metrics and diagnosing over/underfitting."
+  },
+  {
+    "id": "competency:gis",
+    "source_type": "competency",
+    "source_id": "gis",
+    "text": "Geographic Information Systems. Working with geospatial data and GIS software."
+  },
+  {
+    "id": "competency:spatial_data_analysis",
+    "source_type": "competency",
+    "source_id": "spatial_data_analysis",
+    "text": "Spatial Data Analysis. Analysing spatial patterns and relationships in geographic data."
+  },
+  {
+    "id": "competency:gis_software_tools",
+    "source_type": "competency",
+    "source_id": "gis_software_tools",
+    "text": "GIS Software Tools. Practical use of GIS software for mapping and analysis."
+  },
+  {
+    "id": "competency:database_management",
+    "source_type": "competency",
+    "source_id": "database_management",
+    "text": "Database Management. Designing and operating relational database management systems."
+  },
+  {
+    "id": "competency:relational_database_design",
+    "source_type": "competency",
+    "source_id": "relational_database_design",
+    "text": "Relational Database Design. Schema design, normalization, and indexing strategy."
+  },
+  {
+    "id": "competency:database_administration",
+    "source_type": "competency",
+    "source_id": "database_administration",
+    "text": "Database Administration. Operating, securing, and maintaining a production database."
+  },
+  {
+    "id": "competency:data_engineering",
+    "source_type": "competency",
+    "source_id": "data_engineering",
+    "text": "Data Engineering. Building pipelines that move and transform data reliably."
+  },
+  {
+    "id": "competency:etl_pipelines",
+    "source_type": "competency",
+    "source_id": "etl_pipelines",
+    "text": "ETL Pipelines. Extracting, transforming, and loading data between systems."
+  },
+  {
+    "id": "competency:data_quality_cleaning",
+    "source_type": "competency",
+    "source_id": "data_quality_cleaning",
+    "text": "Data Quality & Cleaning. Detecting and correcting data quality issues before analysis."
+  },
+  {
+    "id": "competency:survey_sampling_design",
+    "source_type": "competency",
+    "source_id": "survey_sampling_design",
+    "text": "Survey Sampling Design. Designing probability samples for official statistics collection."
+  },
+  {
+    "id": "competency:statistical_report_writing",
+    "source_type": "competency",
+    "source_id": "statistical_report_writing",
+    "text": "Statistical Report Writing. Writing clear, accurate statistical reports for policy audiences."
+  },
+  {
+    "id": "competency:data_governance_ethics",
+    "source_type": "competency",
+    "source_id": "data_governance_ethics",
+    "text": "Data Governance & Ethics. Applying data privacy, security, and governance standards to official data."
+  },
+  {
+    "id": "competency:stakeholder_communication",
+    "source_type": "competency",
+    "source_id": "stakeholder_communication",
+    "text": "Stakeholder Communication. Explaining technical findings to non-technical decision-makers."
+  },
+  {
+    "id": "role:role-sso-01",
+    "source_type": "role",
+    "source_id": "role-sso-01",
+    "text": "Senior Statistical Officer. Leads official statistics production: survey design, estimation, and reporting for government data programmes."
+  },
+  {
+    "id": "role:role-da-02",
+    "source_type": "role",
+    "source_id": "role-da-02",
+    "text": "Senior Data Analyst. Turns raw administrative and survey data into decision-ready analysis and dashboards."
+  },
+  {
+    "id": "role:role-ds-03",
+    "source_type": "role",
+    "source_id": "role-ds-03",
+    "text": "Lead Data Scientist. Builds predictive models and advanced analytics on top of official statistics datasets."
+  },
+  {
+    "id": "role:role-sp-04",
+    "source_type": "role",
+    "source_id": "role-sp-04",
+    "text": "Statistical Programmer. Implements and optimizes the data pipelines and queries behind official statistics products."
+  },
+  {
+    "id": "role:role-gis-05",
+    "source_type": "role",
+    "source_id": "role-gis-05",
+    "text": "GIS Analyst. Produces spatial statistics and mapping products from geographic and survey data."
+  },
+  {
+    "id": "role:role-de-06",
+    "source_type": "role",
+    "source_id": "role-de-06",
+    "text": "Data Engineer. Builds and maintains the data pipelines and databases that feed the statistical office's systems."
+  },
+  {
+    "id": "course:sql-foundations-01",
+    "source_type": "course",
+    "source_id": "sql-foundations-01",
+    "text": "SQL Foundations for Official Statistics (iGOT Karmayogi). A beginner-level iGOT Karmayogi course on sql foundations for official statistics, covering: SQL, SQL SELECT & Filtering."
+  },
+  {
+    "id": "course:sql-joins-aggregation-02",
+    "source_type": "course",
+    "source_id": "sql-joins-aggregation-02",
+    "text": "SQL Joins & Aggregation in Practice (iGOT Karmayogi). An intermediate-level iGOT Karmayogi course on sql joins & aggregation in practice, covering: SQL Joins, SQL Aggregation & HAVING."
+  },
+  {
+    "id": "course:sql-window-analytics-03",
+    "source_type": "course",
+    "source_id": "sql-window-analytics-03",
+    "text": "Advanced SQL Analytics (National Statistical Academy). An advanced-level National Statistical Academy course on advanced sql analytics, covering: SQL Window Functions, SQL CTEs."
+  },
+  {
+    "id": "course:sql-performance-tuning-04",
+    "source_type": "course",
+    "source_id": "sql-performance-tuning-04",
+    "text": "SQL Query Optimization for Large Statistical Datasets (National Statistical Academy). An advanced-level National Statistical Academy course on sql query optimization for large statistical datasets, covering: SQL Query Optimization."
+  },
+  {
+    "id": "course:python-foundations-05",
+    "source_type": "course",
+    "source_id": "python-foundations-05",
+    "text": "Python Programming Foundations (iGOT Karmayogi). A beginner-level iGOT Karmayogi course on python programming foundations, covering: Python."
+  },
+  {
+    "id": "course:python-data-wrangling-06",
+    "source_type": "course",
+    "source_id": "python-data-wrangling-06",
+    "text": "Applied Python for Survey Data & Imputation (Ministry of Statistics (MoSPI)). An intermediate-level Ministry of Statistics (MoSPI) course on applied python for survey data & imputation, covering: Python Data Manipulation."
+  },
+  {
+    "id": "course:python-stat-computing-07",
+    "source_type": "course",
+    "source_id": "python-stat-computing-07",
+    "text": "Statistical Computing with Python (UN Statistics Division). An advanced-level UN Statistics Division course on statistical computing with python, covering: Python Statistical Computing."
+  },
+  {
+    "id": "course:applied-statistics-08",
+    "source_type": "course",
+    "source_id": "applied-statistics-08",
+    "text": "Applied Statistics for Government Analysts (National Statistical Academy). A beginner-level National Statistical Academy course on applied statistics for government analysts, covering: Statistics, Descriptive Statistics."
+  },
+  {
+    "id": "course:inferential-statistics-09",
+    "source_type": "course",
+    "source_id": "inferential-statistics-09",
+    "text": "Inferential Statistics & Regression Modelling (National Statistical Academy). An advanced-level National Statistical Academy course on inferential statistics & regression modelling, covering: Inferential Statistics, Regression Analysis."
+  },
+  {
+    "id": "course:survey-methodology-10",
+    "source_type": "course",
+    "source_id": "survey-methodology-10",
+    "text": "Complex Survey Design & Variance Estimation (Ministry of Statistics (MoSPI)). An intermediate-level Ministry of Statistics (MoSPI) course on complex survey design & variance estimation, covering: Survey Methodology, Survey Sampling Design."
+  },
+  {
+    "id": "course:statistical-reporting-11",
+    "source_type": "course",
+    "source_id": "statistical-reporting-11",
+    "text": "Writing Statistical Reports for Policy Audiences (Ministry of Statistics (MoSPI)). An intermediate-level Ministry of Statistics (MoSPI) course on writing statistical reports for policy audiences, covering: Statistical Report Writing, Stakeholder Communication."
+  },
+  {
+    "id": "course:dataviz-essentials-12",
+    "source_type": "course",
+    "source_id": "dataviz-essentials-12",
+    "text": "Data Visualization Essentials (iGOT Karmayogi). An intermediate-level iGOT Karmayogi course on data visualization essentials, covering: Data Visualization, Dashboard Design."
+  },
+  {
+    "id": "course:advanced-charting-13",
+    "source_type": "course",
+    "source_id": "advanced-charting-13",
+    "text": "Statistical Charting for Public Communication (GovTech Institute). An intermediate-level GovTech Institute course on statistical charting for public communication, covering: Statistical Charting."
+  },
+  {
+    "id": "course:ml-foundations-14",
+    "source_type": "course",
+    "source_id": "ml-foundations-14",
+    "text": "Machine Learning Foundations for Analysts (UN Statistics Division). An advanced-level UN Statistics Division course on machine learning foundations for analysts, covering: Machine Learning, Supervised Learning."
+  },
+  {
+    "id": "course:model-evaluation-15",
+    "source_type": "course",
+    "source_id": "model-evaluation-15",
+    "text": "Model Evaluation & Validation Metrics (UN Statistics Division). An advanced-level UN Statistics Division course on model evaluation & validation metrics, covering: Model Evaluation."
+  },
+  {
+    "id": "course:gis-fundamentals-16",
+    "source_type": "course",
+    "source_id": "gis-fundamentals-16",
+    "text": "GIS Fundamentals for Government Analysts (GovTech Institute). A beginner-level GovTech Institute course on gis fundamentals for government analysts, covering: Geographic Information Systems, GIS Software Tools."
+  },
+  {
+    "id": "course:spatial-data-analysis-17",
+    "source_type": "course",
+    "source_id": "spatial-data-analysis-17",
+    "text": "Spatial Data Analysis for Statistical Programmes (GovTech Institute). An advanced-level GovTech Institute course on spatial data analysis for statistical programmes, covering: Spatial Data Analysis."
+  },
+  {
+    "id": "course:database-mgmt-essentials-18",
+    "source_type": "course",
+    "source_id": "database-mgmt-essentials-18",
+    "text": "Database Management Essentials (iGOT Karmayogi). An intermediate-level iGOT Karmayogi course on database management essentials, covering: Database Management, Relational Database Design."
+  },
+  {
+    "id": "course:database-admin-advanced-19",
+    "source_type": "course",
+    "source_id": "database-admin-advanced-19",
+    "text": "Advanced Database Administration (National Statistical Academy). An advanced-level National Statistical Academy course on advanced database administration, covering: Database Administration."
+  },
+  {
+    "id": "course:data-engineering-etl-20",
+    "source_type": "course",
+    "source_id": "data-engineering-etl-20",
+    "text": "Data Engineering & ETL Pipelines for Official Statistics (UN Statistics Division). An advanced-level UN Statistics Division course on data engineering & etl pipelines for official statistics, covering: Data Engineering, ETL Pipelines."
+  },
+  {
+    "id": "course:data-quality-cleaning-21",
+    "source_type": "course",
+    "source_id": "data-quality-cleaning-21",
+    "text": "Data Quality & Cleaning in Practice (Ministry of Statistics (MoSPI)). An intermediate-level Ministry of Statistics (MoSPI) course on data quality & cleaning in practice, covering: Data Quality & Cleaning."
+  },
+  {
+    "id": "course:data-governance-ethics-22",
+    "source_type": "course",
+    "source_id": "data-governance-ethics-22",
+    "text": "Data Governance & Ethics for Public Institutions (Ministry of Statistics (MoSPI)). A beginner-level Ministry of Statistics (MoSPI) course on data governance & ethics for public institutions, covering: Data Governance & Ethics."
+  },
+  {
+    "id": "course:stakeholder-communication-23",
+    "source_type": "course",
+    "source_id": "stakeholder-communication-23",
+    "text": "Communicating Data to Non-Technical Stakeholders (GovTech Institute). A beginner-level GovTech Institute course on communicating data to non-technical stakeholders, covering: Stakeholder Communication."
+  },
+  {
+    "id": "course:sql-for-analysts-24",
+    "source_type": "course",
+    "source_id": "sql-for-analysts-24",
+    "text": "SQL for Data Analysts (Ministry of Statistics (MoSPI)). A beginner-level Ministry of Statistics (MoSPI) course on sql for data analysts, covering: SQL, SQL Aggregation & HAVING."
+  },
+  {
+    "id": "course:python-for-data-science-25",
+    "source_type": "course",
+    "source_id": "python-for-data-science-25",
+    "text": "Python for Data Science (UN Statistics Division). An intermediate-level UN Statistics Division course on python for data science, covering: Python, Python Data Manipulation."
+  },
+  {
+    "id": "course:advanced-survey-variance-26",
+    "source_type": "course",
+    "source_id": "advanced-survey-variance-26",
+    "text": "Advanced Survey Variance Estimation (National Statistical Academy). An advanced-level National Statistical Academy course on advanced survey variance estimation, covering: Survey Methodology, Inferential Statistics."
+  },
+  {
+    "id": "course:dashboard-design-govt-27",
+    "source_type": "course",
+    "source_id": "dashboard-design-govt-27",
+    "text": "Dashboard Design for Government Reporting (iGOT Karmayogi). An intermediate-level iGOT Karmayogi course on dashboard design for government reporting, covering: Dashboard Design."
+  },
+  {
+    "id": "course:big-data-fundamentals-28",
+    "source_type": "course",
+    "source_id": "big-data-fundamentals-28",
+    "text": "Big Data Fundamentals for Statistical Agencies (UN Statistics Division). An intermediate-level UN Statistics Division course on big data fundamentals for statistical agencies, covering: Data Engineering, ETL Pipelines."
+  },
+  {
+    "id": "course:relational-db-design-29",
+    "source_type": "course",
+    "source_id": "relational-db-design-29",
+    "text": "Relational Database Design Deep Dive (National Statistical Academy). An intermediate-level National Statistical Academy course on relational database design deep dive, covering: Relational Database Design."
+  },
+  {
+    "id": "course:ml-model-evaluation-lab-30",
+    "source_type": "course",
+    "source_id": "ml-model-evaluation-lab-30",
+    "text": "Machine Learning Model Evaluation Lab (GovTech Institute). An advanced-level GovTech Institute course on machine learning model evaluation lab, covering: Model Evaluation, Supervised Learning."
+  }
+]

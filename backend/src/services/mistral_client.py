@@ -253,3 +253,53 @@ def generate_rationale(steps: list[dict]) -> dict[int, str]:
     except Exception as exc:  # optional/best-effort — logged, never raised (research.md §3)
         logger.warning("Learning path rationale generation failed (non-fatal): %s", exc)
         return {}
+
+
+# Phase 6 (specs/026-phase-6-evidence-rag-mcp) — the RAG-grounded plan explanation. Same
+# optional/best-effort, no-retry, single-batched-call pattern as generate_rationale() above,
+# extended with retrieved evidence and a self-reported evidence-id citation per step so the
+# caller's grounding validator (learning_plan_planner.py) can verify every citation deterministically
+# rather than parsing free text — Mistral is asked to cite, not just to explain (research.md §4).
+_GROUNDED_PLAN_EXPLANATION_PROMPT = (
+    "You are currently performing: LEARNING_PLAN_GROUNDED_EXPLANATION. For each learning path step "
+    "supplied (already in its final, backend-decided order — do not reorder or add steps), write a "
+    "short, specific explanation of what the step covers and why it matters for the target role, "
+    "using ONLY the course title, addressed competencies, and retrieved evidence text supplied for "
+    "that step. Do not invent a course, provider, duration, rating, skill, or certification not "
+    "present in what you were given. For every fact in your explanation that comes from a piece of "
+    "retrieved evidence, list that evidence's id in referenced_evidence_ids — never list an id you "
+    "were not given for that step. Return JSON only, in the form "
+    '{"step_explanations": {"<step_number>": {"explanation": "...", "referenced_evidence_ids": '
+    '["..."]}}}. Do not include a step_number you were not given.'
+)
+
+
+def generate_grounded_plan_explanations(steps_with_evidence: list[dict]) -> dict[int, dict]:
+    """FR-004 (Phase 6 spec): optional/best-effort, returns {} on any failure — the caller
+    (learning_plan_planner.py) falls back to the plain deterministic plan in that case (FR-007).
+
+    `steps_with_evidence`: [{"step_number", "course_title", "addresses_gaps": [name, ...],
+    "evidence": [{"id", "text"}, ...]}, ...]. Returns {step_number: {"explanation": str,
+    "referenced_evidence_ids": [str]}}.
+    """
+    try:
+        client = _client()
+        user_payload = {
+            "operation": "LEARNING_PLAN_GROUNDED_EXPLANATION",
+            "steps": steps_with_evidence,
+        }
+        response = client.chat.complete(
+            model=_MODEL,
+            messages=[
+                {"role": "system", "content": f"{BASE_RULES}\n\n{_GROUNDED_PLAN_EXPLANATION_PROMPT}"},
+                {"role": "user", "content": json.dumps(user_payload)},
+            ],
+            response_format=ResponseFormat(type="json_object"),
+            max_tokens=2000,
+            timeout_ms=15000,
+        )
+        parsed = json.loads(response.choices[0].message.content)
+        return {int(k): v for k, v in parsed.get("step_explanations", {}).items()}
+    except Exception as exc:  # optional/best-effort — logged, never raised (research.md §3/§4)
+        logger.warning("Grounded plan explanation generation failed (non-fatal): %s", exc)
+        return {}

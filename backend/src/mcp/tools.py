@@ -318,9 +318,14 @@ def get_course_recommendations(db: Session, request: CourseRecommendationsReques
 
 
 def get_relevant_evidence(db: Session, request: RelevantEvidenceRequest) -> RelevantEvidenceResult:
-    """Stubbed this phase — always raises. Phase 6 wires this to evidence_engine.py's real FAISS
-    query (specs/026-phase-6-evidence-rag-mcp/tasks.md's T009)."""
-    raise MCPToolError(
-        "get_relevant_evidence", "index_unavailable",
-        "Evidence retrieval is not implemented until Phase 6 (specs/026-phase-6-evidence-rag-mcp)",
-    )
+    """Phase 6 (specs/026-phase-6-evidence-rag-mcp): wired to evidence_engine.py's real FAISS
+    query. `db` is unused here (evidence retrieval reads the persisted index, not the database)
+    but kept in the signature for consistency with every other tool's `(db, request)` shape."""
+    from backend.src.services import evidence_engine
+
+    try:
+        items = evidence_engine.query(request.query, top_k=request.top_k)
+    except evidence_engine.EvidenceIndexUnavailableError as exc:
+        raise MCPToolError("get_relevant_evidence", "index_unavailable", str(exc)) from exc
+
+    return RelevantEvidenceResult(items=[item.model_dump() for item in items])
