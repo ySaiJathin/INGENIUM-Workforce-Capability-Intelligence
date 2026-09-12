@@ -9,6 +9,11 @@ the error) — the caller decides what "graceful failure" looks like for its own
 Follows total_buildplan.md §7.3/§7.4's "one service owns every Mistral call" rule and §27.1's
 BASE_RULES + operation-specific prompt pattern.
 
+Phase 2 (specs/022-phase-2-llm-mcp-layer) note: retry ownership lives exactly here, in this
+module's own attempt loops, and nowhere else — the MCP tool layer (backend/src/mcp/) never adds a
+second retry around a call into this module, which would silently double the number of attempts
+(and worst-case latency) on a slow-but-eventually-successful call.
+
 SDK note: the installed `mistralai` 2.x package's client lives at `mistralai.client.Mistral`, not
 `mistralai.Mistral` as some older docs suggest — confirmed against the installed package directly.
 """

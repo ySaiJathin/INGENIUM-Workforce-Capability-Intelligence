@@ -238,18 +238,18 @@ Phase 17 Final Testing & Demo Rehearsal
 
 **Status tracker (update as you go — this is what tells the next agent/session exactly how far the project has gotten):**
 ```
-Phase 0  – [ ] not started
-Phase 1  – [ ] not started
-Phase 2  – [ ] not started
-Phase 3  – [ ] not started
-Phase 4  – [ ] not started
-Phase 5  – [ ] not started
-Phase 6  – [ ] not started
-Phase 7  – [ ] not started
-Phase 8  – [ ] not started
-Phase 9  – [ ] not started
-Phase 10 – [ ] not started
-Phase 11 – [ ] not started
+Phase 0  – [x] complete (2026-09-12) — health/DB reachability confirmed live; see specs/020-phase-0-diagnose-stabilize/diagnosis.md
+Phase 1  – [x] complete (2026-09-12) — curated data foundation confirmed present/loaded, see specs/002-task-1-data-foundation
+Phase 2  – [x] complete (2026-09-12) — PostgreSQL schema/seed confirmed live via /roles, /competencies queries
+Phase 3  – [x] complete (2026-09-12) — GET /health, /roles, /roles/{id} confirmed live this session
+Phase 4  – [x] complete (2026-09-12) — POST /candidates/resume and /candidates/demo confirmed live, real extraction + graceful Mistral-failure fallback verified
+Phase 5  – [x] complete (2026-09-12) — target-role selection (POST /candidates/{id}/target-role) confirmed live
+Phase 6  – [x] complete (2026-09-12) — adaptive assessment loop (start/next-question/answer) confirmed live, seed-fallback path exercised and correct
+Phase 7  – [x] complete (2026-09-12) — deterministic scoring (GET /assessment/{id}/profile) confirmed live
+Phase 8  – [x] complete (2026-09-12) — skill gap engine (POST /analysis, GET .../gaps) confirmed live and deterministic
+Phase 9  – [x] complete (2026-09-12) — course recommendation engine (GET .../courses) confirmed live with explainable match_reason
+Phase 10 – [x] complete (2026-09-12) — learning path (POST /learning-path) confirmed live
+Phase 11 – [x] complete (2026-09-12) — frontend foundation confirmed present, see specs/012-task-11-frontend-foundation
 Phase 12 – [x] complete (2026-09-12) — see specs/013-task-12-frontend-candidate-flow/tasks.md
 Phase 13 – [x] complete (2026-09-12) — see specs/014-task-13-frontend-assessment/tasks.md
 Phase 14 – [x] complete (2026-09-12) — see specs/015-task-14-frontend-results/tasks.md
@@ -260,16 +260,24 @@ Phase 17 – [x] complete-with-caveats (2026-09-12) — all 9 named scenarios te
 
 **Final project status (2026-09-12, end of Phase 17)**: Phases 12-17 (the frontend candidate-intake
 flow through final testing) were completed and live-verified end-to-end in this session. Phases 0-11
-(backend/data foundation through frontend foundation) still show "not started" above — that reflects
-this tracker being stale, not the actual state: those phases were independently confirmed working via
-direct API testing at the very start of this session, before any of the work recorded above began, and
-were not re-verified as part of Phases 12-17's own passes beyond the contract audit in spec 016 and the
-regression runs in specs 017-018. **Three items remain outstanding before presenting to judges**, none
-of them code: (1) a human must click through `quickstart.md`'s browser-driven steps at least once — no
-browser-automation tool was available in any session that touched Phases 12-18, so every "browser" step
-across those specs was substituted with an equivalent API-level replay; (2) the offline screenshot
-fallback set (Task 16 FR-006) has not been captured; (3) the full timed demo rehearsal on the actual
-presentation device (`demo_plan.md` §16's checklist) has not been run by a human.
+(backend/data foundation through frontend foundation), listed above as "not started" for a period after
+Phase 17 closed, have since been formally closed out by a dedicated Phase 0 diagnosis pass
+(`specs/020-phase-0-diagnose-stabilize/diagnosis.md`, 2026-09-12) — every one of them was confirmed
+working via direct, live API testing (not just "the code looks right"). **Three items remain outstanding
+before presenting to judges**, none of them code: (1) a human must click through `quickstart.md`'s
+browser-driven steps at least once — no browser-automation tool was available in any session that
+touched Phases 12-18, so every "browser" step across those specs was substituted with an equivalent
+API-level replay; (2) the offline screenshot fallback set (Task 16 FR-006) has not been captured; (3)
+the full timed demo rehearsal on the actual presentation device (`demo_plan.md` §16's checklist) has
+not been run by a human.
+
+**Numbering note**: the "Phase 0-17" scheme above is `build_plan.md`'s Task numbering (Task 0 =
+environment setup, Task 1 = data foundation, etc. — this document's own §6 heading). It is a
+**separate, unrelated numbering** from `INGENIUM_MASTER_FUNCTIONALITY_AND_MCP_IMPLEMENTATION.md`'s
+own "Phase 0" through "Phase 7" (diagnose/stabilize through full integration, covering the new MCP +
+FAISS work), tracked instead in `specs/020-phase-0-diagnose-stabilize/` through
+`specs/027-phase-7-full-integration/`. Do not conflate the two when reading either document's "Phase
+N" references.
 
 ---
 

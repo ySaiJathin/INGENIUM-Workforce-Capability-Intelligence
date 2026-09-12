@@ -13,6 +13,15 @@ full build plan. This file documents day-to-day run instructions only.
 Runs on `http://localhost:8000` by default, with every route mounted at the root (no `/api`
 prefix) — see `backend/src/main.py`. CORS is open for local development.
 
+**This `uvicorn`-from-source command is the sanctioned way to run the backend** (Phase 0 decision,
+`specs/020-phase-0-diagnose-stabilize/plan.md`'s Research Decision). There is no `Dockerfile` for
+the backend service in this repo, and `docker-compose.yml` only runs PostgreSQL — if you build a
+Docker image for the backend ad hoc, rebuild it every time `backend/src/` changes. A stale,
+ad-hoc-built backend image was found running during this project's Phase 0 audit with behavior
+that no longer matched the checked-in source (a resume-extraction fallback that had since been
+replaced); always verify a running backend against `curl http://localhost:8000/health` plus a
+resume-upload smoke test before trusting it for further testing.
+
 ## Frontend
 
 ```bash
