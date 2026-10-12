@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { PageHeader } from '../components/layout/PageHeader';
 import { ConfidenceBadge } from '../components/ui/ConfidenceBadge';
@@ -12,18 +11,20 @@ import {
   AlertCircle,
   Loader2,
   ArrowRight,
-  Sparkles,
   ShieldAlert,
   Info
 } from 'lucide-react';
 
 export const ResumeUpload: React.FC = () => {
-  const navigate = useNavigate();
-  const { extractedEvidence, resumeFileName, setResumeUploaded, loadDemoCandidate, loading, errors } = useApp();
+  const { extractedEvidence, resumeFileName, setResumeUploaded, loading, errors } = useApp();
   const [isDragging, setIsDragging] = useState(false);
+  // Retained only so a failed upload's Retry button can re-attempt the exact same file without
+  // making the user re-pick it — never used to fall back to any internal/dummy profile.
+  const [lastAttemptedFile, setLastAttemptedFile] = useState<File | null>(null);
   const isProcessing = !!loading.initialProfile;
 
   const handleUpload = (file: File) => {
+    setLastAttemptedFile(file);
     setResumeUploaded(file).catch(() => {
       // Error is surfaced via errors.initialProfile below; nothing further to do here.
     });
@@ -107,33 +108,24 @@ export const ResumeUpload: React.FC = () => {
                   }}
                 />
               </label>
-
-              <button
-                type="button"
-                onClick={() => {
-                  loadDemoCandidate().catch(() => {
-                    // Error is surfaced via errors.initialProfile below; nothing further to do here.
-                  });
-                  navigate('/candidate/profile');
-                }}
-                className="btn-secondary text-xs flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-                <span>Try Demo Candidate (Ananya Sharma)</span>
-              </button>
             </div>
           )}
 
-          {resumeFileName && !isProcessing && (
+          {resumeFileName && !isProcessing && !errors.initialProfile && (
             <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>Loaded: <strong>{resumeFileName}</strong></span>
+              <span>Resume uploaded successfully: <strong>{resumeFileName}</strong></span>
             </div>
           )}
         </div>
       </div>
 
-      {errors.initialProfile && !isProcessing && <ErrorState error={errors.initialProfile} />}
+      {errors.initialProfile && !isProcessing && (
+        <ErrorState
+          error={errors.initialProfile}
+          onRetry={lastAttemptedFile ? () => handleUpload(lastAttemptedFile) : undefined}
+        />
+      )}
 
       {/* Critical Disclaimer Alert */}
       <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 flex items-start gap-3">

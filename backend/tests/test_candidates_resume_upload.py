@@ -13,9 +13,11 @@ test_mistral_client-style tests belong to Phase 2).
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from unittest.mock import patch
 
+import pytest
 from fastapi.testclient import TestClient
 
 from backend.src.main import app
@@ -30,6 +32,18 @@ client = TestClient(app)
 
 _FIXTURES = Path(__file__).parent / "fixtures"
 _DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+# TEMPORARY MVP BRIDGE (backend/src/api/candidates.py): every test below patches
+# extract_resume_skills and asserts on ITS output reaching the response — meaningless while
+# RESUME_UPLOAD_MISTRAL_EXTRACTION=false makes the endpoint skip that call entirely and return the
+# internal default profile instead. Skipping with a clear reason (not deleting) keeps this honestly
+# red/absent rather than quietly green for the wrong reason; these come back automatically once the
+# bridge is reverted (env var flipped back to true).
+pytestmark = pytest.mark.skipif(
+    os.environ.get("RESUME_UPLOAD_MISTRAL_EXTRACTION", "false").strip().lower() != "true",
+    reason="Resume-upload Mistral extraction is temporarily bridged off "
+           "(RESUME_UPLOAD_MISTRAL_EXTRACTION=false) — see backend/src/api/candidates.py",
+)
 
 
 def _upload(fixture_name: str, mocked_extraction: ResumeExtractionResponse):

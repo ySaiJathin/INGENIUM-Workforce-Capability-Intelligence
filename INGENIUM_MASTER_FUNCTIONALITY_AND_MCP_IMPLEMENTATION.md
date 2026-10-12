@@ -151,16 +151,15 @@ Do not assume that the documentation matches the implementation.
 The repository is the source of truth for current implementation.
 The documents are the intended architecture.
 
-**Known discrepancy going in:** `total_mvp_context.md` §1 states "Current implementation
-state: 0% built." That line is stale. Real code already exists for every major engine —
-`backend/src/services/{assessment_engine,scoring_engine,gap_engine,
-course_recommendation_engine,learning_path_engine,mistral_client,competency_mapping,
-resume_extraction}.py` — and the full 14-page frontend plus 16 demo screenshots already
-exist. `total_mvp_context.md` §6's own status tracker says Phases 12–17 are
-"complete-with-caveats" and live-verified, with one bug (an unbounded DB-outage hang)
-already found and fixed. Treat Phase 0 below as a real audit of an already-substantial
-codebase, not a from-scratch build — most of Phases 0–5's "objectives" will likely turn
-out to be "already works, verify it" rather than "build this."
+**Known discrepancy — closed out (2026-09-12, this master document's own Phase 7):** this note
+originally flagged that `total_mvp_context.md` §1 stated "Current implementation state: 0% built,"
+stale even at the time this document was written, since real code already existed for every major
+engine and the full frontend. That line has since been corrected in `total_mvp_context.md` §1, and
+this master document's own Phase 0 through Phase 7 are now all complete and live-verified — see
+`specs/020-phase-0-diagnose-stabilize/` through `specs/027-phase-7-full-integration/`, and
+`specs/027-phase-7-full-integration/results.md` for the final whole-system confidence pass. This
+note is left in place, rather than deleted, as the historical record of the discrepancy a fresh
+session would otherwise have been misled by.
 
 Identify:
 

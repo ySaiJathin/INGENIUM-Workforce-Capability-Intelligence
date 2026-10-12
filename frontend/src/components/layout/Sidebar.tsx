@@ -18,7 +18,7 @@ import { useApp } from '../../context/AppContext';
 
 export const Sidebar: React.FC = () => {
   const location = useLocation();
-  const { candidate, targetRole, loadDemoCandidate, resetToBlankState, isDemoMode } = useApp();
+  const { candidate, targetRole, resetToBlankState } = useApp();
 
   const navigationStages = [
     {
@@ -131,27 +131,16 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Demo Fast-Load Button */}
+        {/* Session Controls */}
         <div className="flex gap-1.5">
-          <button
-            onClick={() => {
-              loadDemoCandidate().catch(() => {
-                // Error is surfaced via errors.initialProfile on screens that render it.
-              });
-            }}
-            type="button"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/40 text-xs font-semibold transition-colors"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span>Try Demo Candidate</span>
-          </button>
           <button
             onClick={resetToBlankState}
             type="button"
             title="Reset to blank workflow"
-            className="p-2 rounded-md bg-slate-800/80 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-700 text-xs transition-colors"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-slate-800/80 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-700 text-xs font-semibold transition-colors"
           >
             <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset Session</span>
           </button>
         </div>
       </div>

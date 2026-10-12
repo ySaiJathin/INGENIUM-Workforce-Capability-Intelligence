@@ -4,6 +4,7 @@ import {
   ApiCompetencySummary,
   ApiCourseSummary,
   ApiResumeUploadResponse,
+  ApiDemoCandidateOption,
   ApiTargetRoleSelectionResponse,
   ApiStartAssessmentResponse,
   ApiNextQuestionResponse,
@@ -64,11 +65,18 @@ export class WorkforceIntelligenceAPI {
   }
 
   /** POST /candidates/demo — Task 16. Same response shape as uploadResume (source: "demo"), so
-   * "Try Demo Candidate" needs no branching beyond this one call (FR-001). */
-  static async startDemoCandidate(): Promise<ApiResumeUploadResponse> {
+   * "Try Demo Candidate" needs no branching beyond this one call (FR-001). `profileId` selects
+   * among GET /candidates/demo-options' entries; omitted picks the backend's default profile. */
+  static async startDemoCandidate(profileId?: string): Promise<ApiResumeUploadResponse> {
     return apiFetch<ApiResumeUploadResponse>('/candidates/demo', {
-      method: 'POST'
+      method: 'POST',
+      body: profileId ? { profile_id: profileId } : undefined
     });
+  }
+
+  /** GET /candidates/demo-options — the selectable "Try Demo Candidate" profiles for the picker. */
+  static async getDemoOptions(): Promise<ApiDemoCandidateOption[]> {
+    return apiFetch<ApiDemoCandidateOption[]>('/candidates/demo-options');
   }
 
   /** POST /candidates/{candidateId}/target-role */

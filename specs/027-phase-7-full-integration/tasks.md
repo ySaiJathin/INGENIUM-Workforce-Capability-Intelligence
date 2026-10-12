@@ -18,14 +18,14 @@ under every documented failure — per spec.md.
 
 ## Phase 1: Setup
 
-- [ ] T001 Confirm Phases 0-6's own `tasks.md` checkpoints are all marked complete before starting this phase
-- [ ] T002 Stop and restart the full stack (Postgres container + backend + frontend) from a clean state to establish a true "freshly started environment" baseline
+- [X] T001 Confirm Phases 0-6's own `tasks.md` checkpoints are all marked complete before starting this phase
+- [X] T002 Stop and restart the full stack (Postgres container + backend + frontend) from a clean state to establish a true "freshly started environment" baseline
 
 ---
 
 ## Phase 2: Foundational
 
-- [ ] T003 Prepare a real test resume file (PDF or DOCX) and confirm `MISTRAL_API_KEY` status (rate-limited or not) going into this phase, since several test-matrix rows behave differently depending on it (both outcomes are valid per FR-003, but must be recorded, not assumed)
+- [X] T003 Prepare a real test resume file (PDF or DOCX) and confirm `MISTRAL_API_KEY` status (rate-limited or not) going into this phase, since several test-matrix rows behave differently depending on it (both outcomes are valid per FR-003, but must be recorded, not assumed)
 
 **Checkpoint**: Environment and test materials ready.
 
@@ -41,11 +41,11 @@ upload, each run twice from a fresh session.
 
 ### Implementation for User Story 1
 
-- [ ] T004 [US1] Run the full golden path once via `POST /candidates/demo` → target-role → assessment → profile → analysis → gaps → courses → learning-path; record each response
-- [ ] T005 [US1] Run the full golden path a second time via `POST /candidates/demo` (fresh candidate) immediately after T004; confirm no conflict with the first run's state (FR-004)
-- [ ] T006 [US1] Run the full golden path once via `POST /candidates/resume` with the real test file from T003; confirm it converges on the identical downstream endpoints/shapes as T004 (FR-002)
-- [ ] T007 [US1] Run the real-resume path a second time from a fresh session; confirm no conflict (FR-004)
-- [ ] T008 [US1] Time one full walkthrough (either entry point) end-to-end; confirm under 3 minutes of hands-on interaction (SC-001)
+- [X] T004 [US1] Run the full golden path once via `POST /candidates/demo` → target-role → assessment → profile → analysis → gaps → courses → learning-path; record each response
+- [X] T005 [US1] Run the full golden path a second time via `POST /candidates/demo` (fresh candidate) immediately after T004; confirm no conflict with the first run's state (FR-004)
+- [X] T006 [US1] Run the full golden path once via `POST /candidates/resume` with the real test file from T003; confirm it converges on the identical downstream endpoints/shapes as T004 (FR-002)
+- [X] T007 [US1] Run the real-resume path a second time from a fresh session; confirm no conflict (FR-004)
+- [X] T008 [US1] Time one full walkthrough (either entry point) end-to-end; confirm under 3 minutes of hands-on interaction (SC-001)
 
 **Checkpoint**: User Story 1 complete — golden path proven from clean start, both entry points,
 twice each.
@@ -62,18 +62,18 @@ graceful degradation and that the rest of the app remains usable afterward.
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Trigger and record: invalid resume type (quickstart.md row 1)
-- [ ] T010 [P] [US2] Trigger and record: empty resume (row 2)
-- [ ] T011 [P] [US2] Trigger and record: corrupt resume (row 3)
-- [ ] T012 [P] [US2] Trigger and record: LLM unavailable (row 4)
-- [ ] T013 [P] [US2] Trigger and record: malformed LLM output / rate-limit path (row 5 — already observed working this session; re-confirm post-Phase-2/3/6 changes)
-- [ ] T014 [P] [US2] Trigger and record: unknown role id (row 6)
-- [ ] T015 [P] [US2] Trigger and record: unknown candidate id (row 7)
-- [ ] T016 [P] [US2] Trigger and record: unknown/expired session (row 8)
-- [ ] T017 [P] [US2] Trigger and record: unavailable course data (row 9)
-- [ ] T018 [P] [US2] Trigger and record: unavailable evidence retrieval — rename `data/index/evidence.faiss` temporarily, confirm learning-path falls back with `grounding: null` (row 10, Phase 6's fallback)
-- [ ] T019 [US2] Trigger and record: database temporarily unreachable — stop the Postgres container briefly, retry a request, confirm a clear bounded-timeout error (row 11, already fixed this session via `db.py`'s `connect_timeout`)
-- [ ] T020 [US2] For each of T009-T019, confirm the error surfaced at the actual point of failure (not a generic downstream error) and that a subsequent normal request succeeds again once the condition is resolved (FR-005/FR-006)
+- [X] T009 [P] [US2] Trigger and record: invalid resume type (quickstart.md row 1)
+- [X] T010 [P] [US2] Trigger and record: empty resume (row 2)
+- [X] T011 [P] [US2] Trigger and record: corrupt resume (row 3)
+- [X] T012 [P] [US2] Trigger and record: LLM unavailable (row 4)
+- [X] T013 [P] [US2] Trigger and record: malformed LLM output / rate-limit path (row 5 — already observed working this session; re-confirm post-Phase-2/3/6 changes)
+- [X] T014 [P] [US2] Trigger and record: unknown role id (row 6)
+- [X] T015 [P] [US2] Trigger and record: unknown candidate id (row 7)
+- [X] T016 [P] [US2] Trigger and record: unknown/expired session (row 8)
+- [X] T017 [P] [US2] Trigger and record: unavailable course data (row 9)
+- [X] T018 [P] [US2] Trigger and record: unavailable evidence retrieval — rename `data/index/evidence.faiss` temporarily, confirm learning-path falls back with `grounding: null` (row 10, Phase 6's fallback)
+- [X] T019 [US2] Trigger and record: database temporarily unreachable — stop the Postgres container briefly, retry a request, confirm a clear bounded-timeout error (row 11, already fixed this session via `db.py`'s `connect_timeout`)
+- [X] T020 [US2] For each of T009-T019, confirm the error surfaced at the actual point of failure (not a generic downstream error) and that a subsequent normal request succeeds again once the condition is resolved (FR-005/FR-006)
 
 **Checkpoint**: Both user stories verified — Phase 7, and the whole master-document initiative,
 complete.
@@ -82,9 +82,9 @@ complete.
 
 ## Phase 5: Polish & Cross-Cutting
 
-- [ ] T021 Compile T004-T020's results into a single pass/fail table (reuse `specs/018-task-17-final-testing/checklists/requirements.md`'s format if helpful) and attach it to this feature's spec.md or a new `results.md`
-- [ ] T022 Update `CLAUDE.md`/`total_mvp_context.md`'s status trackers to reflect the completed initiative, closing out the "Known discrepancy" notes both documents currently carry
-- [ ] T023 If time remains: capture the offline screenshot fallback set (per `demo_plan.md` §13/§16) now that the full grounded pipeline is in place
+- [X] T021 Compile T004-T020's results into a single pass/fail table (reuse `specs/018-task-17-final-testing/checklists/requirements.md`'s format if helpful) and attach it to this feature's spec.md or a new `results.md`
+- [X] T022 Update `CLAUDE.md`/`total_mvp_context.md`'s status trackers to reflect the completed initiative, closing out the "Known discrepancy" notes both documents currently carry
+- [ ] T023 If time remains: capture the offline screenshot fallback set (per `demo_plan.md` §13/§16) now that the full grounded pipeline is in place — **deferred**: no browser-automation tool was loaded this session and the phase's required scope (T001-T022) already consumed the time budget; left for a follow-up session per this task's own "if time remains" framing
 
 ---
 

@@ -14,7 +14,6 @@ import {
   Mail,
   FileUp,
   ArrowRight,
-  Sparkles,
   Award,
   CheckCircle2,
   AlertTriangle
@@ -22,7 +21,7 @@ import {
 
 export const Candidate: React.FC = () => {
   const navigate = useNavigate();
-  const { candidate, targetRole, loadDemoCandidate, isAssessmentCompleted } = useApp();
+  const { candidate, targetRole, isAssessmentCompleted } = useApp();
 
   return (
     <div className="space-y-6">
@@ -32,19 +31,6 @@ export const Candidate: React.FC = () => {
         nextPath="/candidate/resume"
         nextLabel="Proceed to Resume Evidence"
         breadcrumbs={[{ label: 'Ingenium', path: '/' }, { label: 'Candidate' }]}
-        actions={
-          <button
-            onClick={() => {
-              loadDemoCandidate().catch(() => {
-                // Error is surfaced via errors.initialProfile on screens that render it.
-              });
-            }}
-            className="btn-secondary text-xs flex items-center gap-1.5"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Load Demo Candidate</span>
-          </button>
-        }
       />
 
       {/* Candidate Profile Hero Card */}

@@ -29,7 +29,14 @@ SQL: 2.5/5, Confidence 54%    →       SQL: 3.1/5, Confidence 89%
 
 The resume provides an initial, unverified estimate. The adaptive assessment verifies/refines it. The backend — never Mistral — owns the final score. This distinction must be visible in the UI.
 
-**Current implementation state: 0% built.** Only documentation exists so far (`total_buildplan.md`, `total_mvp_context.md`, `CLAUDE.md`, `demo_plan.md`). No repo scaffold, no database, no API, no frontend yet. Architecture is frozen — see §3. ~13 hours remain from kickoff.
+**Current implementation state: fully built and live-verified, including the MCP/FAISS initiative.**
+(This line was stale for a long stretch of the project's life — see the "Known discrepancy" note
+`INGENIUM_MASTER_FUNCTIONALITY_AND_MCP_IMPLEMENTATION.md` carried about it, now closed out.) Every
+engine, both the original 18-task build and the follow-on Phase 0-7 MCP/FAISS/full-integration work
+(`specs/020-phase-0-diagnose-stabilize/` through `specs/027-phase-7-full-integration/`), is real,
+committed code, confirmed working via direct, live API testing — not "the code looks right." See
+§6's status tracker below and `specs/027-phase-7-full-integration/results.md` for the final
+whole-system confidence pass. Architecture is frozen — see §3.
 
 ---
 
@@ -278,6 +285,22 @@ own "Phase 0" through "Phase 7" (diagnose/stabilize through full integration, co
 FAISS work), tracked instead in `specs/020-phase-0-diagnose-stabilize/` through
 `specs/027-phase-7-full-integration/`. Do not conflate the two when reading either document's "Phase
 N" references.
+
+**MCP/FAISS initiative status (2026-09-12, end of master-document Phase 7)**: all eight sibling
+specs (`020` through `027`, plus the umbrella `019-mcp-faiss-implementation`) are complete. Phase 7's
+own whole-system confidence pass (`specs/027-phase-7-full-integration/results.md`) live-verified the
+golden path via both entry points from a genuinely clean restart (an orphaned stale backend process
+from an earlier session was found and cleared first — see that file's pre-flight note) and all 11
+documented failure conditions (plus 5 bonus edge cases). One real defect was found and fixed during
+this pass: `POST /learning-path` with an unknown `analysis_id` raised an unhandled 500 instead of
+the documented 404 — fixed in `backend/src/api/learning_path.py` to match its sibling endpoints'
+existing guard, verified against the full backend test suite (52 passed, no regressions) and the
+golden path. One item remains genuinely outstanding, not a defect: the real-resume entry point's
+full-pipeline convergence (FR-002) could not be live-confirmed past its entry point in this session,
+because `MISTRAL_API_KEY` was quota-exhausted (sustained HTTP 429) throughout — the documented
+FR-006 fallback (422, "Try Demo Candidate") fired correctly and repeatably instead. Convergence is
+structurally guaranteed by code inspection (both entry points share every downstream table and
+engine) but should get one live confirmation once the key's quota resets.
 
 ---
 

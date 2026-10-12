@@ -1,0 +1,174 @@
+[
+  {
+    "id": "ananya-sharma",
+    "label": "Try Demo Candidate (Ananya Sharma)",
+    "source": "curated (original Task 16 rehearsed demo — see demo_plan.md)",
+    "target_role_id": "role-sso-01",
+    "initial_profile": [
+      {
+        "competency_id": "sql",
+        "competency_name": "SQL",
+        "resume_estimated_level": 2.5,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Wrote SQL queries to pull survey response data for quarterly reporting."
+      },
+      {
+        "competency_id": "python",
+        "competency_name": "Python",
+        "resume_estimated_level": 3.2,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Used Python (pandas) to clean and merge administrative datasets."
+      },
+      {
+        "competency_id": "statistics",
+        "competency_name": "Statistics",
+        "resume_estimated_level": 3.7,
+        "resume_confidence": "HIGH",
+        "evidence_snippet": "Applied descriptive and inferential statistics to survey estimation, with 3 years producing official statistical reports."
+      }
+    ]
+  },
+  {
+    "id": "demo-candidate-b",
+    "label": "Try Demo Candidate (Full-Stack Profile)",
+    "source": "deterministic keyword extraction from data/resumes/KAMALESH_RESUME_Aug.pdf (Mistral unavailable at generation time — see this script's docstring)",
+    "target_role_id": "role-sp-04",
+    "initial_profile": [
+      {
+        "competency_id": "database_management",
+        "competency_name": "Database Management",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Developing a full-stack Library Management System using Java, Spring Boot, React, and MySQL to manage books"
+      }
+    ]
+  },
+  {
+    "id": "demo-candidate-c",
+    "label": "Try Demo Candidate (Data Analyst Profile)",
+    "source": "deterministic keyword extraction from data/resumes/Resume-KETHARNATH-RAMU-Sony-Research-India.pdf (Mistral unavailable at generation time — see this script's docstring)",
+    "target_role_id": "role-da-02",
+    "initial_profile": [
+      {
+        "competency_id": "sql",
+        "competency_name": "SQL",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Java, Python, SQL, HTML5, CSS3, ReactJS, Spring Boot, RESTful APIs, MySQL, MongoDB"
+      },
+      {
+        "competency_id": "python",
+        "competency_name": "Python",
+        "resume_estimated_level": 3.4,
+        "resume_confidence": "HIGH",
+        "evidence_snippet": "Worked on a real-time military tank monitoring dashboard using Python, HTML, CSS, and JavaScript to visualize CSV-based"
+      },
+      {
+        "competency_id": "python_data_manipulation",
+        "competency_name": "Python Data Manipulation",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Worked on data analysis and preprocessing using Python libraries such as NumPy and Pandas."
+      },
+      {
+        "competency_id": "machine_learning",
+        "competency_name": "Machine Learning",
+        "resume_estimated_level": 1.8,
+        "resume_confidence": "LOW",
+        "evidence_snippet": "Infosys Springboard: Java Foundation, Frontend Development, Machine Learning Foundation"
+      },
+      {
+        "competency_id": "data_visualization",
+        "competency_name": "Data Visualization",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Worked on a real-time military tank monitoring dashboard using Python, HTML, CSS, and JavaScript to visualize CSV-based"
+      },
+      {
+        "competency_id": "dashboard_design",
+        "competency_name": "Dashboard Design",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Worked on a real-time military tank monitoring dashboard using Python, HTML, CSS, and JavaScript to visualize CSV-based"
+      },
+      {
+        "competency_id": "database_management",
+        "competency_name": "Database Management",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Java, Python, SQL, HTML5, CSS3, ReactJS, Spring Boot, RESTful APIs, MySQL, MongoDB"
+      },
+      {
+        "competency_id": "data_quality_cleaning",
+        "competency_name": "Data Quality & Cleaning",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Worked on data analysis and preprocessing using Python libraries such as NumPy and Pandas."
+      }
+    ]
+  },
+  {
+    "id": "demo-candidate-d",
+    "label": "Try Demo Candidate (Data Scientist Profile)",
+    "source": "deterministic keyword extraction from data/resumes/Resume_V2.3.pdf (Mistral unavailable at generation time — see this script's docstring)",
+    "target_role_id": "role-ds-03",
+    "initial_profile": [
+      {
+        "competency_id": "sql",
+        "competency_name": "SQL",
+        "resume_estimated_level": 3.4,
+        "resume_confidence": "HIGH",
+        "evidence_snippet": "Python | SQL | Snowflake Cortex | Cortex Analyst | Cortex Search | Streamlit | RAG"
+      },
+      {
+        "competency_id": "python",
+        "competency_name": "Python",
+        "resume_estimated_level": 3.4,
+        "resume_confidence": "HIGH",
+        "evidence_snippet": "Python | Pandas | NumPy | Scikit-learn | Streamlit | Plotly | Matplotlib | Seaborn | Joblib | Git | GitHub"
+      },
+      {
+        "competency_id": "python_data_manipulation",
+        "competency_name": "Python Data Manipulation",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Python | Pandas | NumPy | Scikit-learn | Streamlit | Plotly | Matplotlib | Seaborn | Joblib | Git | GitHub"
+      },
+      {
+        "competency_id": "machine_learning",
+        "competency_name": "Machine Learning",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Python | Pandas | NumPy | Scikit-learn | Streamlit | Plotly | Matplotlib | Seaborn | Joblib | Git | GitHub"
+      },
+      {
+        "competency_id": "supervised_learning",
+        "competency_name": "Supervised Learning",
+        "resume_estimated_level": 1.8,
+        "resume_confidence": "LOW",
+        "evidence_snippet": "Python | Computer Vision | Image Classification | Machine Learning"
+      },
+      {
+        "competency_id": "data_visualization",
+        "competency_name": "Data Visualization",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Python | Pandas | NumPy | Scikit-learn | Streamlit | Plotly | Matplotlib | Seaborn | Joblib | Git | GitHub"
+      },
+      {
+        "competency_id": "dashboard_design",
+        "competency_name": "Dashboard Design",
+        "resume_estimated_level": 2.6,
+        "resume_confidence": "MEDIUM",
+        "evidence_snippet": "Intelligence Dashboard."
+      },
+      {
+        "competency_id": "database_management",
+        "competency_name": "Database Management",
+        "resume_estimated_level": 3.4,
+        "resume_confidence": "HIGH",
+        "evidence_snippet": "Python | SQL | Snowflake Cortex | Cortex Analyst | Cortex Search | Streamlit | RAG"
+      }
+    ]
+  }
+]

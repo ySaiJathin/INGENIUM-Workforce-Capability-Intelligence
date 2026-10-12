@@ -89,6 +89,22 @@ class ResumeUploadResponse(BaseModel):
     initial_profile: list[InitialProfileItem]
 
 
+class DemoCandidateOption(BaseModel):
+    """One selectable entry from data/curated/demo_candidates.json — GET /candidates/demo-options'
+    response shape. `label` is the only user-facing text; `id` is passed back to POST
+    /candidates/demo to pick which profile to seed."""
+
+    id: str
+    label: str
+
+
+class DemoCandidateRequest(BaseModel):
+    """Optional body for POST /candidates/demo. Omitted or None -> the original, already-rehearsed
+    default profile (Task 16), so every existing caller of this endpoint keeps working unchanged."""
+
+    profile_id: str | None = None
+
+
 # --- Task 5: Target Role & Requirement Engine ---
 
 

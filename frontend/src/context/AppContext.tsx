@@ -12,7 +12,8 @@ import {
   LearningPath,
   LearningPathStep,
   ApiNextQuestionResponse,
-  VerificationLedgerEntry
+  VerificationLedgerEntry,
+  ApiDemoCandidateOption
 } from '../types';
 // Task 16: "Try Demo Candidate" now seeds a real backend candidate (POST /candidates/demo) and
 // flows through the identical pipeline as a real upload — DEMO_CANDIDATE supplies only the
@@ -21,6 +22,59 @@ import {
 import { DEMO_CANDIDATE } from '../mock/demoData';
 import { WorkforceIntelligenceAPI } from '../services/api';
 import { ApiError } from '../services/httpClient';
+
+// Additional selectable demo profiles (backend/src/scripts/build_demo_candidates_from_resumes.py)
+// generated deterministically from real resume files when Mistral was unavailable at generation
+// time — deliberately generic identity fields (no real names) so nothing here could be mistaken
+// for a genuine employee record; every field says "Demo" for the same reason CLAUDE.md requires
+// demo data to be clearly identifiable as demo data.
+const DEMO_PROFILE_IDENTITIES: Record<string, Omit<Candidate, 'id' | 'selectedRoleId'>> = {
+  'demo-candidate-b': {
+    name: 'Demo Candidate B',
+    designation: 'Statistical Programmer (Demo)',
+    department: 'Demo Data — Deterministic Resume Extraction',
+    cadre: 'N/A (Demo)',
+    yearsOfExperience: 0,
+    location: 'N/A (Demo)',
+    email: 'demo-candidate-b@example.local',
+    employeeCode: 'DEMO-B',
+    assessmentStatus: 'Resume Uploaded',
+    evidenceSource: 'Resume Uploaded',
+    overallConfidence: 'LOW',
+    initialProfileGenerated: true,
+    assessmentCompleted: false
+  },
+  'demo-candidate-c': {
+    name: 'Demo Candidate C',
+    designation: 'Senior Data Analyst (Demo)',
+    department: 'Demo Data — Deterministic Resume Extraction',
+    cadre: 'N/A (Demo)',
+    yearsOfExperience: 0,
+    location: 'N/A (Demo)',
+    email: 'demo-candidate-c@example.local',
+    employeeCode: 'DEMO-C',
+    assessmentStatus: 'Resume Uploaded',
+    evidenceSource: 'Resume Uploaded',
+    overallConfidence: 'LOW',
+    initialProfileGenerated: true,
+    assessmentCompleted: false
+  },
+  'demo-candidate-d': {
+    name: 'Demo Candidate D',
+    designation: 'Lead Data Scientist (Demo)',
+    department: 'Demo Data — Deterministic Resume Extraction',
+    cadre: 'N/A (Demo)',
+    yearsOfExperience: 0,
+    location: 'N/A (Demo)',
+    email: 'demo-candidate-d@example.local',
+    employeeCode: 'DEMO-D',
+    assessmentStatus: 'Resume Uploaded',
+    evidenceSource: 'Resume Uploaded',
+    overallConfidence: 'LOW',
+    initialProfileGenerated: true,
+    assessmentCompleted: false
+  }
+};
 import {
   toLevelNumber,
   emptyTargetRole,
@@ -156,11 +210,13 @@ interface AppContextType {
   learningPath: LearningPath;
   resumeFileName: string | null;
   isDemoMode: boolean;
+  demoOptions: ApiDemoCandidateOption[];
   loading: Record<string, boolean>;
   errors: Record<string, ApiError | Error | null>;
 
   // Actions (names/shapes preserved per FR-008 wherever practical)
-  loadDemoCandidate: () => Promise<void>;
+  loadDemoOptions: () => Promise<void>;
+  loadDemoCandidate: (profileId?: string) => Promise<void>;
   resetToBlankState: () => void;
   setResumeUploaded: (file: File) => Promise<void>;
   selectTargetRole: (roleId: string) => Promise<void>;
@@ -188,6 +244,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const persisted = useMemo(() => readPersistedSession(), []);
 
   const [isDemoMode, setIsDemoMode] = useState<boolean>(persisted?.isDemoMode ?? false);
+  const [demoOptions, setDemoOptions] = useState<ApiDemoCandidateOption[]>([]);
   const [candidate, setCandidate] = useState<Candidate>(persisted?.candidate ?? EMPTY_CANDIDATE);
   const [candidateId, setCandidateId] = useState<string | null>(persisted?.candidateId ?? null);
   const [allRoles, setAllRoles] = useState<TargetRole[]>([]);
@@ -383,11 +440,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Every action after this (role selection, assessment, completion, learning path) runs the exact
   // same real-backend code as a real candidate; see selectTargetRole/nextQuestion/
   // completeAssessment/generateLearningPath below, none of which branch on isDemoMode anymore.
-  const loadDemoCandidate = async () => {
+  const loadDemoOptions = async () => {
+    try {
+      const options = await WorkforceIntelligenceAPI.getDemoOptions();
+      setDemoOptions(options);
+    } catch {
+      // Non-fatal: the picker just falls back to showing only the original default button
+      // (ResumeUpload.tsx renders nothing extra when demoOptions is empty) — Rule 10.
+    }
+  };
+
+  const loadDemoCandidate = async (profileId?: string) => {
     setLoadingKey('initialProfile', true);
     setErrorKey('initialProfile', null);
     try {
-      const response = await WorkforceIntelligenceAPI.startDemoCandidate();
+      const response = await WorkforceIntelligenceAPI.startDemoCandidate(profileId);
       setIsDemoMode(true);
       setCandidateId(response.candidate_id);
       setResumeFileName(null);
@@ -408,9 +475,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // /candidates/resume-shaped response carries these (Task 4: "validated but intentionally not
       // persisted"), so this is legitimate demo-specific UI content (demo_plan.md §3), not a
       // fabricated number on a gap/profile screen (spec SC-005 only constrains those).
+      const identity = (profileId && DEMO_PROFILE_IDENTITIES[profileId]) || DEMO_CANDIDATE;
       setCandidate(prev => ({
         ...prev,
-        ...DEMO_CANDIDATE,
+        ...identity,
         id: response.candidate_id,
         assessmentStatus: 'Resume Uploaded',
         evidenceSource: 'Resume Uploaded',
@@ -812,8 +880,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         learningPath,
         resumeFileName,
         isDemoMode,
+        demoOptions,
         loading,
         errors,
+        loadDemoOptions,
         loadDemoCandidate,
         resetToBlankState,
         setResumeUploaded,

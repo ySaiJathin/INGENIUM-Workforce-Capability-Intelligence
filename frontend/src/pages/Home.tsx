@@ -1,13 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../context/AppContext';
 import {
   FileText,
   Target,
   BrainCircuit,
   GraduationCap,
   ArrowRight,
-  Sparkles,
   ShieldCheck,
   Award,
   Layers,
@@ -17,15 +15,6 @@ import {
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const { loadDemoCandidate } = useApp();
-
-  const handleStartDemo = () => {
-    loadDemoCandidate().catch(() => {
-      // Error is surfaced via errors.initialProfile on the screens that render it; nothing further
-      // to do here.
-    });
-    navigate('/candidate');
-  };
 
   const workflowSteps = [
     { title: 'Resume Evidence', desc: 'Unverified self-reported claims', icon: FileText, stage: 'Stage 1' },
@@ -88,14 +77,6 @@ export const Home: React.FC = () => {
             >
               <span>Start Capability Assessment</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={handleStartDemo}
-              className="px-6 py-3 rounded-lg bg-slate-800/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span>Try Demo Candidate (Ananya Sharma)</span>
             </button>
           </div>
         </div>
@@ -174,15 +155,15 @@ export const Home: React.FC = () => {
         <div className="flex items-center gap-3">
           <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
           <div>
-            <h4 className="text-sm font-bold">Hackathon Demo Environment Ready</h4>
-            <p className="text-xs text-slate-400">Pre-populated with National Statistical Office officer datasets and adaptive psychometric test items.</p>
+            <h4 className="text-sm font-bold">Ready to Begin</h4>
+            <p className="text-xs text-slate-400">Upload a resume to build an initial capability profile and start the adaptive assessment.</p>
           </div>
         </div>
         <button
-          onClick={handleStartDemo}
+          onClick={() => navigate('/candidate')}
           className="btn-brand text-xs py-2 px-4 shrink-0 font-bold"
         >
-          Launch Demo Candidate Flow
+          Start Assessment
         </button>
       </div>
     </div>

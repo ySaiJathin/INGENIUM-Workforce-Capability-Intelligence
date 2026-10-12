@@ -71,11 +71,6 @@ export const RoleSelection: React.FC = () => {
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                       {role.title}
-                      {role.id === 'role-sso-01' && (
-                        <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">
-                          DEMO TARGET
-                        </span>
-                      )}
                     </h3>
                   </div>
 

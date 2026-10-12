@@ -281,6 +281,11 @@ export interface ApiResumeUploadResponse {
   initial_profile: ApiInitialProfileItem[];
 }
 
+export interface ApiDemoCandidateOption {
+  id: string;
+  label: string;
+}
+
 export interface ApiTargetRoleSelectionResponse {
   candidate_id: string;
   role: ApiRoleDetail;
